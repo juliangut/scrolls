@@ -1,0 +1,47 @@
+[user]
+     name = developer_name
+     email = developer_email
+
+[core]
+    autocrlf = input #true (for Win)
+    excludesfile = ~/.gitignore
+
+[color]
+     ui = true
+
+[alias]
+    st       = status
+    lg       = log --name-only
+
+    br       = branch
+    go       = checkout
+    co       = checkout
+    pulla    = pull --all
+    pusha    = push --all
+
+    add      = add --all
+    stage    = add
+    unstage  = reset HEAD
+    discard  = checkout --
+
+    ci       = commit
+    amend    = commit --amend
+
+    di       = diff
+
+    pullt    = fetch --tags
+    pusht    = push --tags
+
+    unstash  = stash apply
+
+    ignore   = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
+
+    graph    = log --graph --pretty='%C(bold blue)%h%Creset %C(bold yellow)%d%Creset %C(bold green)(%cr)%Creset %C(cyan)%ci%Creset %C(dim white)<%an>%Creset %s' --abbrev-commit --decorate
+    visual   = !gitg --all &
+    conflict = !gitg --left-right HEAD...MERGE_HEAD
+
+[push]
+    default = current
+
+[help]
+    autocorrect = 1
