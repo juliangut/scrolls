@@ -97,7 +97,7 @@ Alias
 
 ### Diffs
 
-> $ git config --global alias.di diff
+> $ git config --global alias.df diff
 
 ### Tags
 
