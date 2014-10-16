@@ -27,7 +27,7 @@
     ci       = commit
     amend    = commit --amend
 
-    di       = diff
+    df       = diff
 
     pullt    = fetch --tags
     pusht    = push --tags
