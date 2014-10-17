@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<phpunit
+        bootstrap="./tests/Bootstrap.php"
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnError="false"
+        stopOnFailure="false"
+        stopOnSkipped="false"
+        stopOnIncomplete="false"
+        syntaxCheck="false"
+        strict="true"
+        verbose="true"
+        >
+    <testsuites>
+        <testsuite name="{projectName} tests">
+            <directory suffix="Test.php">./tests/{projectNamespace}Test</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Code Coverage reports filter -->
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
+
+    <!-- Code Coverage logging -->
+    <logging>
+        <log type="coverage-text" target="php://stdout"/>
+    </logging>
+
+    <php>
+        <ini name="memory_limit" value="-1"/>
+    </php>
+</phpunit>
