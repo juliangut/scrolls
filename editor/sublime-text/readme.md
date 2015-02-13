@@ -55,19 +55,19 @@ Add the following and save
 Packages
 --------
 
-### Tools
+### Must-have
 
 * SublimeCodeIntel
 * SublimeLinter
 * SublimeGit
+* EditorConfig
+
+### GIT
 * Git Config
-* MarkdownEditing
-* Markdown Preview
+* GitGutter
 
 ### CSS
 
-* Autoprefixer
-* LESS
 * SCSS
 
 ### PHP
@@ -85,6 +85,8 @@ Packages
 
 * Alignment
 * DocBlockr
+* MarkdownEditing
+* Markdown Preview
 
 
 Preferences
