@@ -14,8 +14,7 @@
         stopOnIncomplete="false"
         syntaxCheck="false"
         strict="true"
-        verbose="true"
-        >
+        verbose="true">
     <testsuites>
         <testsuite name="{projectName} tests">
             <directory suffix="Test.php">./tests/{projectNamespace}Test</directory>
