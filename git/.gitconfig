@@ -3,7 +3,7 @@
      email = developer_email
 
 [core]
-    autocrlf = input #true (for Win)
+    autocrlf = input
     excludesfile = ~/.gitignore
 
 [color]

@@ -1,6 +1,11 @@
 Git Configuration
 =================
 
+### General .gitconfig
+
+Locate .gitconfig file in ```~/.gitconfig``` to apply globally
+
+
 Basic
 -----
 
@@ -55,7 +60,7 @@ In case you mistype a command and there is only one option that command will be 
 
 ### Global .gitignore
 
-Defines a global ```.gitignore``` file independent of the project
+Defines a general ```.gitignore``` file applied globally
 
 > $ git config --global core.excludesfile ~/.gitignore
 
@@ -128,6 +133,16 @@ Companion .gitignore
 --------------------
 
 Alongside this document goes a .gitignore file containing most usefull 'ignores'
+
+### General .gitignore
+
+Locate .gitignore file in ```~/.gitignore``` to apply globally
+
+
+Companion .gitattributes
+------------------------
+
+Alongside this document goes a basic .gitattributes file
 
 
 GIT information on bash
