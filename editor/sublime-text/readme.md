@@ -89,34 +89,8 @@ Packages
 * Markdown Preview
 
 
-Preferences
------------
+Example Preferences
+-------------------
 
-Open Preferences > Settings - User on Sublime Text toolbar
-
-### Files
-
-* "default_line_ending": "unix" //Sets default files line ending to LF
-* "detect_indentation": false //Detects indentation type on file
-* "translate_tabs_to_spaces": true //Combined with previous forces spaces instead of tabs
-* "ensure_newline_at_eof_on_save": true //Checks and includes LF at the end of file
-* "trim_automatic_white_space": true //Removes whitespaces automatically in some situations
-* "trim_trailing_white_space_on_save": true //Removes trailing whitespaces on file saving
-
-### Interface
-
-* "draw_white_space": "all" //Draws all whitespace characters
-* "highlight_line": true //Highlights current caret line
-* "highlight_modified_tabs": true //Highlights tabs corresponding to modified files
-* "scroll_past_end": false //Prevents scrolling passed last line
-* "indent_guide_options": ["draw_active"] //Marks current active indented block
-* "rulers":[80, 120] //Shows vertical ruler guides
-* "show_encoding": true //Shows file encoding on status bar
-* "show_line_endings": true //Shows file line endings on status bar
-* "word_wrap": true //Forces word wrap on long lines
-* "wrap_width": 120 //Sets hard limit for word wrap
-
-### Theme
-
-* "color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme" //Sets color schema for editor
-* "theme": "Soda Dark 3.sublime-theme" //Sets sublime text selected theme
+Alonside this document can be found ```Preferences.sublime-settings``` file
+with custom preferences
