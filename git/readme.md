@@ -138,18 +138,45 @@ GIT information on bash
 add this lines to ~/.bashrc
 
 ```bash
+function shorten_pwd()
+{
+    LENGTH="40"
+    PART1="10"
+    PART2="27"
+
+    DIR=`echo "${PWD}" | sed "s/\\/home\\/$USER/~/" | sed "s/\\/Users\\/$USER/~/"`
+
+    if [ ${#DIR} -gt $(($LENGTH)) ]; then
+        echo "${DIR:0:$(($PART1))}...${DIR:$((${#DIR}-$PART2)):$PART2}"
+    else
+        echo "$DIR"
+    fi
+}
+
 YELLOW="\[\033[1;33m\]"
 CYAN="\[\033[0;36m\]"
 WHITE="\[\033[0;37m\]"
 
 source ~/.git-prompt.sh
 PS1="\[$WHITE\][\[$CYAN\]\u@\h \W\[$YELLOW\]\$(__git_ps1)\[$WHITE\]]\$  "
+/*PS1="\[$WHITE\][\[$CYAN\]\u@\h $(shorten_pwd)\[$YELLOW\]\$(__git_ps1)\[$NONE\]]\$  "*/
 export PS1
 ```
 
 or make your own combinations for prompt. \$(__git_ps1) is what shows git branch.
 
 ### Modifiers
+
+#### Untracked files
+
+A symbol will be shown following branch name to indicate untracked files: [%]
+
+Add the following to ~/.bashrc
+
+```bash
+GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUNTRACKEDFILES
+```
 
 #### Stage state
 
