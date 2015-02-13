@@ -129,8 +129,8 @@ Graphical tools and views
 > $ git config --global alias.conflict '!gitg --left-right HEAD...MERGE_HEAD'
 
 
-Companion .gitignore
---------------------
+Example .gitignore
+------------------
 
 Alongside this document goes a .gitignore file containing most usefull 'ignores'
 
@@ -139,8 +139,8 @@ Alongside this document goes a .gitignore file containing most usefull 'ignores'
 Locate .gitignore file in ```~/.gitignore``` to apply globally
 
 
-Companion .gitattributes
-------------------------
+Example .gitattributes
+----------------------
 
 Alongside this document goes a basic .gitattributes file
 
@@ -148,12 +148,14 @@ Alongside this document goes a basic .gitattributes file
 GIT information on bash
 -----------------------
 
+git-prompt shell script can be found alonside this document or be downloaded from:
+
 > $ curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 
 add this lines to ~/.bashrc
 
 ```bash
-function shorten_pwd()
+function __shorten_pwd()
 {
     LENGTH="40"
     PART1="10"
@@ -174,11 +176,16 @@ WHITE="\[\033[0;37m\]"
 
 source ~/.git-prompt.sh
 PS1="\[$WHITE\][\[$CYAN\]\u@\h \W\[$YELLOW\]\$(__git_ps1)\[$WHITE\]]\$  "
-/*PS1="\[$WHITE\][\[$CYAN\]\u@\h $(shorten_pwd)\[$YELLOW\]\$(__git_ps1)\[$NONE\]]\$  "*/
+/*PS1="\[$WHITE\][\[$CYAN\]\u@\h \$(__shorten_pwd)\[$YELLOW\]\$(__git_ps1)\[$WHITE\]]\$  "*/
 export PS1
 ```
 
-or make your own combinations for prompt. \$(__git_ps1) is what shows git branch.
+or make your own combination
+* ```\h``` hostname up to the first ```.```
+* ```\u``` current user
+* ```\W``` basename of current working directory, with ```$HOME``` abbreviated with a tilde
+* ```\$(__git_ps1)``` displays current git branch
+* ```\$(__shorten_pwd)``` shortens pwd (otherwise ```\W```)
 
 ### Modifiers
 
