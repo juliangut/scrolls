@@ -1,1 +1,28 @@
 * text=auto
+
+*.gitattributes text
+.gitignore text
+
+*.doc  diff=astextplain
+*.DOC   diff=astextplain
+*.docx  diff=astextplain
+*.DOCX  diff=astextplain
+*.dot   diff=astextplain
+*.DOT   diff=astextplain
+*.pdf   diff=astextplain
+*.PDF   diff=astextplain
+*.rtf   diff=astextplain
+*.RTF   diff=astextplain
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.gz binary
+*.zip binary
+*.7z binary
+*.ttf binary
+*.mov binary
+*.mp3 binary
+*.mp4 binary
