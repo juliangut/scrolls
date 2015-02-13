@@ -38,7 +38,7 @@
             <property name="minimum" value="3"/>
         </properties>
     </rule>
-    <!-- Variable minimum length (3), doesn't count variables in for statements -->
+    <!-- Variable minimum length (3), not for variables in for statements -->
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
             <property name="minimum" value="3"/>
@@ -142,7 +142,7 @@
             <property name="maxmethods" value="20"/>
         </properties>
     </rule>
-    <!-- Excessive WMC, time and effort required to modify and maintain class (50) -->
+    <!-- Excessive WMC, time and effort to modify and maintain class (500) -->
     <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity">
         <properties>
             <property name="maximum" value="500"/>
