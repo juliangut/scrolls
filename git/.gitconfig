@@ -1,13 +1,13 @@
 [user]
-     name = developer_name
-     email = developer_email
+    name = developer_name
+    email = developer_email
 
 [core]
     autocrlf = input
     excludesfile = ~/.gitignore
 
 [color]
-     ui = true
+    ui = true
 
 [alias]
     st       = status
