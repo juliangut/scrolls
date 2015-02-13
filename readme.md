@@ -6,6 +6,14 @@ normally when I get a new computer or I have to format mine due to
 "to much play"
 
 
+Code Analysis Tools
+-------------------
+
+* PHPCS Example file
+* PHPMD Example file
+* PHPUnit Example file
+
+
 Editors
 -------
 
@@ -14,6 +22,11 @@ Editors
 * Information
 * Preferences
 * Default (Linux).sublime-mousemap
+
+### Brackets
+
+* Information
+* Preferences
 
 
 SSH
@@ -28,6 +41,8 @@ GIT
 * Information
 * .git-prompt.sh
 * .gitconfig
+* .gitignore
+* .gitattributes
 
 
 NPM
