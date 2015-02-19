@@ -173,10 +173,11 @@ function __shorten_pwd()
 YELLOW="\[\033[1;33m\]"
 CYAN="\[\033[0;36m\]"
 WHITE="\[\033[0;37m\]"
+NONE="\[\033[0m\]"
 
 source ~/.git-prompt.sh
-PS1="\[$WHITE\][\[$CYAN\]\u@\h \W\[$YELLOW\]\$(__git_ps1)\[$WHITE\]]\$  "
-/*PS1="\[$WHITE\][\[$CYAN\]\u@\h \$(__shorten_pwd)\[$YELLOW\]\$(__git_ps1)\[$WHITE\]]\$  "*/
+PS1="[$CYAN\u@\h \W$YELLOW\$(__git_ps1)$NONE]\$  "
+/*PS1="[$CYAN\u@\h \$(__shorten_pwd)$YELLOW\$(__git_ps1)$NONE]\$  "*/
 export PS1
 ```
 
