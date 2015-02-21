@@ -79,7 +79,7 @@ Packages
 * BracketHighlighter
 * SideBarEnhacements
 * Monokai Extended
-* Theme - Soda
+* Theme - Brogrammer
 
 ### Other interesting packages
 
