@@ -74,6 +74,10 @@ Packages
 
 * Phpcs
 
+### Apache
+
+* ApacheConf.tmLanguage
+
 ### Interface
 
 * BracketHighlighter
