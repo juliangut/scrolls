@@ -12,6 +12,7 @@
 [alias]
     st       = status
     lg       = log --name-only
+    history  = log -p
 
     br       = branch
     go       = checkout

@@ -74,6 +74,8 @@ Alias
 
 > $ git config --global alias.lg 'log --name-only'
 
+> $ git config --global alias.history 'log -p'
+
 ### Branches
 
 > $ git config --global alias.br brach
