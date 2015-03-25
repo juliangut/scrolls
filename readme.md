@@ -1,51 +1,46 @@
-Scrolls
-=======
+# Scrolls
 
-Compendium of knowledge I usually need to browse all over the Internet,
-normally when I get a new computer or I have to format mine due to
-"to much play"
+Personal knowledge base I need to browse for, normally when I'm on
+a new computer or I have to format mine due to "too much playing",
+or just to share with collegues.
 
+## Code Analysis Tools
 
-Code Analysis Tools
--------------------
+* phpunit.xml [PHPUnit](https://phpunit.de/) template
+* phpcs.xml [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer) template
+* phpmd.xml [PHPMD](https://github.com/phpmd/phpmd) template
 
-* PHPCS Example file
-* PHPMD Example file
-* PHPUnit Example file
+## Code Configurators
 
+* .editorconfig [EditorConfig](http://editorconfig.org/)
+* .jshint [JSHint](http://jshint.com/)
+* .bowerrc [Bower](http://bower.io/)
 
-Editors
--------
+## Editors
 
 ### Sublime Text
 
-* Information
+* General information / configuration
 * Preferences
 * Default (Linux).sublime-mousemap
 
 ### Brackets
 
-* Information
+* General information / configuration
 * Preferences
 
+## GIT
 
-SSH
----
-
-* Information
-
-
-GIT
----
-
-* Information
+* General information / configuration
 * .git-prompt.sh
-* .gitconfig
-* .gitignore
+* .gitconfig example
+* .gitignore example
 * .gitattributes
 
+## NPM
 
-NPM
----
+* General information / configuration
 
-* Information
+## SSH
+
+* General information / configuration
