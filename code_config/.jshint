@@ -1,31 +1,31 @@
 {
-    "browser": true,
-    "node": true,
+  "browser": true,
+  "node": true,
 
-    "strict": true,
-    "esnext": true,
+  "strict": true,
+  "esnext": true,
 
-    "undef": true,
-    "unused": true,
-    "latedef": true,
+  "undef": true,
+  "unused": true,
+  "latedef": true,
 
-    "indent": 4,
-    "camelcase": true,
-    "newcap": true,
-    "quotmark": "single",
-    "trailing": true,
-    "smarttabs": true,
-    "curly": true,
+  "indent": 4,
+  "camelcase": true,
+  "newcap": true,
+  "quotmark": "single",
+  "trailing": true,
+  "smarttabs": true,
+  "curly": true,
 
-    "bitwise": true,
-    "eqeqeq": true,
-    "immed": true,
-    "noarg": true,
+  "bitwise": true,
+  "eqeqeq": true,
+  "immed": true,
+  "noarg": true,
 
-    "globals": {
-        /* AMD */
-        "define": false,
-        /* jQuery */
-        "jquery": true
-    }
+  "globals": {
+    /* AMD */
+    "define": false,
+    /* jQuery */
+    "jquery": true
+  }
 }
