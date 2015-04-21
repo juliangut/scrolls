@@ -4,6 +4,10 @@
 
 Locate .gitconfig file in `~/.gitconfig` to apply globally
 
+#### Template .gitconfig
+
+Alongside this document goes a `.gitconfig` file containing a template for global git configuration
+
 ## Basic
 
 ### Identity set
@@ -24,11 +28,11 @@ git config --global color.ui true
 
 ### Line endings
 
-Always store line endings as `lf` on repository!
+Always store line endings as `lf` (\n) on repository!
 
 #### Windows
 
-Transforms `crlf` to`lf` on push and viceversa on pull
+Transforms `crlf` (\r\n) to`lf` (\n) on push and viceversa on pull
 
 ```bash
 git config --global core.autocrlf true
@@ -36,7 +40,7 @@ git config --global core.autocrlf true
 
 #### Unix like
 
-Transforms `crlf` to `lf` on pull but not viceversa
+Transforms `crlf` (\r\n) to `lf` (\n) on pull but not viceversa
 
 ```bash
 git config --global core.autocrlf input
@@ -66,7 +70,7 @@ git config --global help.autocorrect 1
 
 ### Global .gitignore
 
-Defines a general `.gitignore` file applied globally
+Defines a general `~/.gitignore` file applied globally
 
 ```bash
 git config --global core.excludesfile ~/.gitignore
@@ -142,18 +146,31 @@ git config --global alias.visual '!gitg --all &'
 git config --global alias.conflict '!gitg --left-right HEAD...MERGE_HEAD'
 ```
 
-## Example .gitignore
+### Diffing
 
-Alongside this document goes a .gitignore file containing most usefull 'ignores'
+#### Images
 
-### General .gitignore
+In order for git to be able to perform diffing on images
 
-Locate .gitignore file in `~/.gitignore` to apply globally
+```bash
+git config --global diff.exif.textconv exiftool
+```
 
-## Example .gitattributes
+Then you can add `diff=exif` to `.gitattributes` file
 
-Alongside this document goes a basic `.gitattributes` file
+*`exiftool` is needed for this*
 
+```
+yum install exiftool
+```
+
+## Template .gitignore
+
+Alongside this document goes a `.gitignore` file containing most usefull 'ignores'
+
+## Template .gitattributes
+
+Alongside this document goes a common base `.gitattributes` file
 
 ## GIT information on bash
 

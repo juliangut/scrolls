@@ -46,3 +46,6 @@
 
 [help]
     autocorrect = 1
+
+[diff "exif"]
+    textconv = exiftool
