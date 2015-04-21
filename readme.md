@@ -18,13 +18,13 @@ or just to share with collegues.
 
 ## Editors
 
-### Sublime Text
+### [Sublime Text](http://www.sublimetext.com/)
 
 * General information / configuration
 * Preferences
 * Default (Linux).sublime-mousemap
 
-### Brackets
+### [Brackets](http://brackets.io/)
 
 * General information / configuration
 * Preferences
@@ -33,9 +33,9 @@ or just to share with collegues.
 
 * General information / configuration
 * .git-prompt.sh
+* .gitattributes example
 * .gitconfig example
 * .gitignore example
-* .gitattributes
 
 ## NPM
 

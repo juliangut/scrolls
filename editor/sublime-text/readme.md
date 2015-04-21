@@ -1,8 +1,6 @@
-Sublime Text 3
-==============
+# Sublime Text 3
 
-Package Control
----------------
+## Package Control
 
 ### Install
 
@@ -13,29 +11,31 @@ In Text console type:
 ```bash
 import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
 ```
+
 (As shown on https://sublime.wbond.net/installation)
 
 Restart Sublime Text
 
 ### Usage
 
-On Sublime Text type ```Ctrl + Shift + P``` to open the Command Pallete
+On Sublime Text type `Ctrl + Shift + P` to open the Command Pallete
 
 #### Install packages
 
-Type Install, select ```Package Control: Install Package``` and browse for the package to install
+Type Install, select `Package Control: Install Package` and browse for the package to install
 
 #### Remove packages
 
-Type Remove, select ```Package Control: Remove Package``` and browse for the package to remove
+Type Remove, select `Package Control: Remove Package` and browse for the package to remove
 
 
-Go to definition
-----------------
+## Go to definition
 
-Add Go to definition on ```Ctrl + Click```
+Add Go to definition on `Ctrl + Click`
 
-> $ vim ~/.gitconfig/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-mousemap
+```bash
+vim ~/.gitconfig/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-mousemap
+```
 
 Add the following and save
 
@@ -51,9 +51,7 @@ Add the following and save
 ]
 ```
 
-
-Packages
---------
+## Packages
 
 ### Must-have
 
@@ -93,8 +91,7 @@ Packages
 * Markdown Preview
 
 
-Example Preferences
--------------------
+## Example Preferences
 
-Alonside this document can be found ```Preferences.sublime-settings``` file
+Alonside this document can be found `Preferences.sublime-settings` file
 with custom preferences

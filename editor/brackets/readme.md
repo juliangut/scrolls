@@ -1,8 +1,6 @@
-Brackets
-========
+# Brackets
 
-Packages
---------
+## Packages
 
 ### Must-have
 
@@ -36,8 +34,7 @@ Packages
 * Brackets Outline List
 
 
-Example Preferences
--------------------
+## Example Preferences
 
-Alonside this document can be found ```brackets.json``` file with custom
+Alonside this document can be found `brackets.json` file with custom
 preferences

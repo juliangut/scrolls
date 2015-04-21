@@ -1,18 +1,14 @@
-NPM
-===
+# NPM
 
-Requirements
-------------
+## Requirements
 
 Have Node.js and NPM installed
 
-> $ sudo yum install nodejs npm
+```bash
+yum install nodejs npm
+```
 
-> $ sudo apt-get install nodejs npm
-
-
-Packages management
--------------------
+## Packages management
 
 ### Location
 
@@ -24,35 +20,51 @@ You can specify different directory in `install` command, at the end of the list
 
 Holds the definition of a package, with its dependencies
 
+### Initialization
+
+```bash
+npm init
+```
+
 ### Install
 
-> $ npm install package-name [path/to/destination]
+```bash
+npm install package-name [path/to/destination]
+```
 
 If `package.json` is present you can install all dependencies just by
 
-> $ npm install
+```bash
+npm install
+```
 
 ### Save to package.json
 
 #### As dependency
 
-> $ npm install --save package-name
+```bash
+npm install --save package-name
+```
 
 ### As development dependency
 
-> $ npm install --save-dev package-name
+```bash
+npm install --save-dev package-name
+```
 
 ### Uninstall
 
-> $ npm uninstall package-name
+```bash
+npm uninstall package-name
+```
 
 ### Update
 
-> $ npm update [package-name]
+```bash
+npm update [package-name]
+```
 
-
-Package.json example
---------------------
+## Package.json example
 
 ```json
 {

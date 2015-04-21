@@ -1,158 +1,167 @@
-Git Configuration
-=================
+# Git Configuration
 
-### General .gitconfig
+### Global .gitconfig file
 
-Locate .gitconfig file in ```~/.gitconfig``` to apply globally
+Locate .gitconfig file in `~/.gitconfig` to apply globally
 
-
-Basic
------
+## Basic
 
 ### Identity set
 
 Set your name and email to be identified
 
-> $ git config --global user.name name
-
-> $ git config --global user.email email@example.com
+```bash
+git config --global user.name name
+git config --global user.email email@example.com
+```
 
 ### Colors
-> $ git config --global color.ui true
+```bash
+git config --global color.ui true
+```
 
-
-Important
-----------
+## Important
 
 ### Line endings
 
-Always store line endings as LF on repository
+Always store line endings as `lf` on repository!
 
 #### Windows
-Transforms CRLF to LF on push and viceversa on pull
 
-> $ git config --global core.autocrlf true
+Transforms `crlf` to`lf` on push and viceversa on pull
+
+```bash
+git config --global core.autocrlf true
+```
 
 #### Unix like
-Transforms CRLF to LF on pull but not viceversa
 
-> $ git config --global core.autocrlf input
+Transforms `crlf` to `lf` on pull but not viceversa
+
+```bash
+git config --global core.autocrlf input
+```
 
 ### Pushing
 
-* nothing  - do not push anything.
-* matching - push all branches having the same name in both ends.
-* upstream - push the current branch to its upstream branch.
-* simple   - like upstream, but refuses to push if the upstream branch’s name is different from the local one.
-* current  - push the current branch to a branch of the same name.
+* `nothing`  - do not push anything.
+* `matching` - push all branches having the same name in both ends.
+* `upstream` - push the current branch to its upstream branch.
+* `simple`   - like upstream, but refuses to push if the upstream branch’s name is different from the local one.
+* `current`  - push the current branch to a branch of the same name.
 
-> $ git config --global push.default current
+```bash
+git config --global push.default current
+```
 
-
-Additional
-----------
+## Additional
 
 ### Command spelling
 
-In case you mistype a command and there is only one option that command will be triggered automatically
+In case you misstype a command and there is only one option that command will be triggered automatically
 
-> $ git config --global help.autocorrect 1
+```bash
+git config --global help.autocorrect 1
+```
 
 ### Global .gitignore
 
-Defines a general ```.gitignore``` file applied globally
+Defines a general `.gitignore` file applied globally
 
-> $ git config --global core.excludesfile ~/.gitignore
+```bash
+git config --global core.excludesfile ~/.gitignore
+```
 
-
-Alias
------
+## Alias
 
 ### Status
 
-> $ git config --global alias.st status
-
-> $ git config --global alias.lg 'log --name-only'
-
-> $ git config --global alias.history 'log -p'
+```bash
+git config --global alias.st status
+git config --global alias.lg 'log --name-only'
+git config --global alias.history 'log -p'
+```
 
 ### Branches
 
-> $ git config --global alias.br brach
-
-> $ git config --global alias.go checkout
-
-> $ git config --global alias.co checkout
-
-> $ git config --global alias.pulla 'pull --all'
-
-> $ git config --global alias.pusha 'push --all'
+```bash
+git config --global alias.br brach
+git config --global alias.go checkout
+git config --global alias.co checkout
+git config --global alias.pulla 'pull --all'
+git config --global alias.pusha 'push --all'
+```
 
 ### Staging
 
-> $ git config --global alias.stage add
-
-> $ git config --global alias.unstage 'reset HEAD'
-
-> $ git config --global alias.discard 'checkout --'
+```bash
+git config --global alias.stage add
+git config --global alias.unstage 'reset HEAD'
+git config --global alias.discard 'checkout --'
+```
 
 ### Commiting
 
-> $ git config --global alias.ci commit
-
-> $ git config --global alias.amend 'commit --amend'
+```bash
+git config --global alias.ci commit
+git config --global alias.amend 'commit --amend'
+```
 
 ### Diffs
 
-> $ git config --global alias.df diff
+```bash
+git config --global alias.df diff
+```
 
 ### Tags
 
-> $ git config --global alias.pullt 'fetch --tags'
-
-> $ git config --global alias.pusht 'push --tags'
+```bash
+git config --global alias.pullt 'fetch --tags'
+git config --global alias.pusht 'push --tags'
+```
 
 ### Stashing
 
-> $ git config --global alias.unstash 'stash apply'
+```bash
+git config --global alias.unstash 'stash apply'
+```
 
 ### Ignore
 
-> $ git config --global alias.ignore '!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore'
+```bash
+git config --global alias.ignore '!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore'
+```
 
 ### GUI
 
 Graphical tools and views
 
-> $ git config --global alias.graph "log --graph --all --format=format:'%C(bold blue)%h%Creset%C(bold yellow) %d%Creset - %C(cyan)%aD%Creset %Cgreen(%ar)%Creset - %C(magenta)%an%Creset - %s' --abbrev-commit"
+```bash
+git config --global alias.graph "log --graph --all --format=format:'%C(bold blue)%h%Creset%C(bold yellow) %d%Creset - %C(cyan)%aD%Creset %Cgreen(%ar)%Creset - %C(magenta)%an%Creset - %s' --abbrev-commit"
+git config --global alias.visual '!gitg --all &'
+git config --global alias.conflict '!gitg --left-right HEAD...MERGE_HEAD'
+```
 
-> $ git config --global alias.visual '!gitg --all &'
-
-> $ git config --global alias.conflict '!gitg --left-right HEAD...MERGE_HEAD'
-
-
-Example .gitignore
-------------------
+## Example .gitignore
 
 Alongside this document goes a .gitignore file containing most usefull 'ignores'
 
 ### General .gitignore
 
-Locate .gitignore file in ```~/.gitignore``` to apply globally
+Locate .gitignore file in `~/.gitignore` to apply globally
+
+## Example .gitattributes
+
+Alongside this document goes a basic `.gitattributes` file
 
 
-Example .gitattributes
-----------------------
-
-Alongside this document goes a basic .gitattributes file
-
-
-GIT information on bash
------------------------
+## GIT information on bash
 
 git-prompt shell script can be found alonside this document or be downloaded from:
 
-> $ curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+```bash
+curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+```
 
 add this lines to ~/.bashrc
 
@@ -184,11 +193,11 @@ export PS1
 ```
 
 or make your own combination
-* ```\h``` hostname up to the first ```.```
-* ```\u``` current user
-* ```\W``` basename of current working directory, with ```$HOME``` abbreviated with a tilde
-* ```\$(__git_ps1)``` displays current git branch
-* ```\$(__shorten_pwd)``` shortens pwd (otherwise ```\W```)
+* `\h` hostname up to the first `.`
+* `\u` current user
+* `\W` basename of current working directory, with `$HOME` abbreviated with a tilde
+* `\$(__git_ps1)` displays current git branch
+* `\$(__shorten_pwd)` shortens pwd (otherwise `\W`)
 
 ### Modifiers
 
@@ -196,7 +205,7 @@ or make your own combination
 
 A symbol will be shown following branch name to indicate untracked files: [%]
 
-Add the following to ~/.bashrc
+Add the following to `~/.bashrc`
 
 ```bash
 GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -205,9 +214,9 @@ export GIT_PS1_SHOWUNTRACKEDFILES
 
 #### Stage state
 
-A symbol will be shown following branch name to indicate file changes: [*] for unstaged and [+] for staged
+A symbol will be shown following branch name to indicate file changes: `*` for unstaged and `+` for staged
 
-Add the following to ~/.bashrc
+Add the following to `~/.bashrc`
 
 ```bash
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -216,10 +225,9 @@ export GIT_PS1_SHOWDIRTYSTATE
 
 #### Branch status
 
-A symbol will be shown following branch name to show comparison with HEAD: [=] no difference, [<] you are behind,
-[>] you are ahead, and [<>] you have diverged
+A symbol will be shown following branch name to show comparison with HEAD: `=` no difference, `<` you are behind, `>` you are ahead, and `<>` you have diverged
 
-Add the following to ~/.bashrc
+Add the following to `~/.bashrc`
 
 ```bash
 GIT_PS1_SHOWUPSTREAM="auto"
