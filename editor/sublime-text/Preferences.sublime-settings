@@ -1,7 +1,10 @@
 {
+    "caret_extra_width": 1,
+    "caret_style": "phase",
     "color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",
     "default_line_ending": "unix",
     "detect_indentation": false,
+    "drag_text": false,
     "draw_white_space": "all",
     "ensure_newline_at_eof_on_save": true,
     "font_size": 11,
@@ -15,16 +18,21 @@
     [
         "draw_active"
     ],
+    "overlay_scroll_bars": "enabled",
     "rulers":
     [
         80,
         120
     ],
     "scroll_past_end": false,
+    "scroll_speed": 5.0,
+    "shift_tab_unindent": true,
     "show_encoding": true,
+    "show_full_path": false,
     "show_line_endings": true,
     "theme": "Brogrammer.sublime-theme",
     "translate_tabs_to_spaces": true,
+    "tree_animation_enabled": false,
     "trim_automatic_white_space": true,
     "trim_trailing_white_space_on_save": true,
     "word_wrap": true,
