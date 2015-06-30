@@ -52,23 +52,27 @@ Add the following and save
 
 ## Packages
 
-### Must-have
+### General
 
 * [SublimeCodeIntel](https://sublimecodeintel.github.io/SublimeCodeIntel/)
 * [SublimeLinter](http://www.sublimelinter.com/)
 * [SublimeGit](https://sublimegit.net/)
 * [EditorConfig](http://editorconfig.org/)
+* [AllAutocomplete](https://github.com/alienhard/SublimeAllAutocomplete)
 
 ### GIT
+
 * [Git Config](https://github.com/robballou/gitconfig-sublimetext)
 * [GitGutter](http://www.jisaacks.com/gitgutter)
 
 ### CSS
 
+* [Sublime-CSS3](https://github.com/i-akhmadullin/Sublime-CSS3)
 * [SCSS](https://github.com/MarioRicalde/SCSS.tmbundle/tree/SublimeText2)
 
 ### PHP
 
+* [PHP Companion](https://github.com/erichard/SublimePHPCompanion)
 * [Phpcs](http://benmatselby.github.io/sublime-phpcs/)
 
 ### Apache
@@ -80,9 +84,10 @@ Add the following and save
 * [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter)
 * [SideBarEnhancements](https://github.com/titoBouzout/SideBarEnhancements)
 * [Monokai Extended](https://github.com/jonschlinkert/sublime-monokai-extended)
-* [Theme - Brogrammer](https://github.com/kenwheeler/brogrammer-theme)
+* [Theme - predawn](https://github.com/jamiewilson/predawn/) ("theme": "predawn.sublime-theme")
+* [Theme - Brogrammer](https://github.com/kenwheeler/brogrammer-theme) ("theme": "Brogrammer.sublime-theme")
 
-### Interesting packages
+### Other
 
 * [Alignment](http://wbond.net/sublime_packages/alignment)
 * [DocBlockr](https://github.com/spadgos/sublime-jsdocs)
