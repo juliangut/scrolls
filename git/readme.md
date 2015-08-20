@@ -1,13 +1,5 @@
 # Git Configuration
 
-### Global .gitconfig file
-
-Locate .gitconfig file in `~/.gitconfig` to apply globally
-
-#### Template .gitconfig
-
-Alongside this document goes a `.gitconfig` file containing a template for global git configuration
-
 ## Basic
 
 ### Identity set
@@ -24,6 +16,28 @@ git config --global user.email email@example.com
 git config --global color.ui true
 ```
 
+#### Branches
+```bash
+git config --global color.branches.current 'yellow reverse'
+git config --global color.branches.local yellow
+git config --global color.branches.remote green
+```
+
+#### Diff
+```bash
+git config --global color.diff.meta 'yellow bold'
+git config --global color.diff.frag 'magenta bold'
+git config --global color.diff.old red
+git config --global color.diff.new green
+```
+
+#### Status
+```bash
+git config --global color.status.added yellow
+git config --global color.status.changed green
+git config --global color.status.untracked cyan
+```
+
 ## Important
 
 ### Line endings
@@ -38,7 +52,7 @@ Transforms `crlf` (\r\n) to`lf` (\n) on push and viceversa on pull
 git config --global core.autocrlf true
 ```
 
-#### Unix like
+#### Unix
 
 Transforms `crlf` (\r\n) to `lf` (\n) on pull but not viceversa
 
@@ -60,6 +74,17 @@ git config --global push.default current
 
 ## Additional
 
+### Templates
+
+Apply files globally
+
+```bash
+git config --global core.excludesfile ~/.gitconfig
+git config --global core.attributesfile ~/.gitattributes
+```
+
+Template `.gitignore` and `.gitattributes` files can be found aside this document
+
 ### Command spelling
 
 In case you misstype a command and there is only one option that command will be triggered automatically
@@ -68,15 +93,13 @@ In case you misstype a command and there is only one option that command will be
 git config --global help.autocorrect 1
 ```
 
-### Global .gitignore
+## Alias
 
-Defines a general `~/.gitignore` file applied globally
+### Initializing/cloning
 
 ```bash
-git config --global core.excludesfile ~/.gitignore
+git config --global alias.clone 'clone --recursive'
 ```
-
-## Alias
 
 ### Status
 
@@ -92,8 +115,7 @@ git config --global alias.history 'log -p'
 git config --global alias.br brach
 git config --global alias.go checkout
 git config --global alias.co checkout
-git config --global alias.pulla 'pull --all'
-git config --global alias.pusha 'push --all'
+git config --global alias.branches 'branch -a'
 ```
 
 ### Staging
@@ -109,6 +131,8 @@ git config --global alias.discard 'checkout --'
 ```bash
 git config --global alias.ci commit
 git config --global alias.amend 'commit --amend'
+git config --global alias.pulla 'pull --all'
+git config --global alias.pusha 'push --all'
 ```
 
 ### Diffs
@@ -120,6 +144,7 @@ git config --global alias.df diff
 ### Tags
 
 ```bash
+git config --global alias.tags 'tag -l'
 git config --global alias.pullt 'fetch --tags'
 git config --global alias.pusht 'push --tags'
 ```
@@ -128,6 +153,13 @@ git config --global alias.pusht 'push --tags'
 
 ```bash
 git config --global alias.unstash 'stash apply'
+```
+
+### Others
+
+```bash
+git config --global alias.remotes 'remote -v'
+git config --global alias.contributors 'shortlog --summary --numbered'
 ```
 
 ### Ignore
@@ -146,7 +178,13 @@ git config --global alias.visual '!gitg --all &'
 git config --global alias.conflict '!gitg --left-right HEAD...MERGE_HEAD'
 ```
 
-### Diffing
+### Diffs
+
+Detect copies as well as renames
+
+```bash
+git config --global diff.renames = copies
+```
 
 #### Images
 
@@ -163,14 +201,6 @@ Then you can add `diff=exif` to `.gitattributes` file
 ```
 yum install exiftool
 ```
-
-## Template .gitignore
-
-Alongside this document goes a `.gitignore` file containing most usefull 'ignores'
-
-## Template .gitattributes
-
-Alongside this document goes a common base `.gitattributes` file
 
 ## GIT information on bash
 

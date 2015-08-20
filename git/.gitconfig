@@ -1,41 +1,66 @@
 [user]
-    name = developer_name
-    email = developer_email
+    name = Julián Gutiérrez
+    email = juliangut@gmail.com
 
 [core]
     autocrlf = input
-    excludesfile = ~/.gitignore
+
+    excludesfile   = ~/.gitignore
+    attributesfile = ~/.gitattributes
 
 [color]
     ui = true
 
+[color "branch"]
+    current = yellow reverse
+    local   = yellow
+    remote  = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red
+    new = green
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
 [alias]
-    st       = status
-    lg       = log --name-only
-    history  = log -p
+    clone = clone --recursive
+
+    st      = status
+    lg      = log --name-only
+    history = log -p
 
     br       = branch
     go       = checkout
     co       = checkout
-    pulla    = pull --all
-    pusha    = push --all
+    branches = branch -a
 
-    add      = add --all
-    stage    = add
-    unstage  = reset HEAD
-    discard  = checkout --
+    add     = add --all
+    stage   = add
+    unstage = reset HEAD
+    discard = checkout --
 
-    ci       = commit
-    amend    = commit --amend
+    ci    = commit
+    amend = commit --amend
+    pulla = pull --all
+    pusha = push --all
 
-    df       = diff
+    df = diff
 
-    pullt    = fetch --tags
-    pusht    = push --tags
+    tags  = tag -l
+    pullt = fetch --tags
+    pusht = push --tags
 
-    unstash  = stash apply
+    unstash = stash apply
 
-    ignore   = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
+    remotes = remote -v
+    contributors = shortlog --summary --numbered
+
+    ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
 
     graph    = log --graph --pretty='%C(bold blue)%h%Creset %C(bold yellow)%d%Creset %C(bold green)(%cr)%Creset %C(cyan)%ci%Creset %C(dim white)<%an>%Creset %s' --abbrev-commit --decorate
     visual   = !gitg --all &
@@ -46,6 +71,9 @@
 
 [help]
     autocorrect = 1
+
+[diff]
+    renames = copies
 
 [diff "exif"]
     textconv = exiftool
