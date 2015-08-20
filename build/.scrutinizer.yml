@@ -1,7 +1,7 @@
 # language: php
 filter:
   excluded_paths:
-    - build/*
+    - dist/*
     - tests/*
     - vendor/*
 
@@ -58,27 +58,27 @@ checks:
 tools:
   external_code_coverage:
     timeout: 600
-    runs: 3
   php_code_coverage: false
   php_code_sniffer:
     config:
       include_standards:
-        - phpcs.xml
+        - phpcs.xml.dist
     filter:
       paths: ['src']
   php_cpd:
     enabled: true
-    excluded_dirs: [build, tests, vendor]
+    excluded_dirs: [dist, tests, vendor]
   php_mess_detector:
     enabled: true
     config:
-      ruleset: phpmd.xml
+      ruleset: phpmd.xml.dist
   php_loc:
     enabled: true
-    excluded_dirs: [build, tests, vendor]
+    excluded_dirs: [dist, tests, vendor]
   php_pdepend: true
   php_analyzer: true
   sensiolabs_security_checker: true
 
 before_commands:
-  - 'composer install --no-interaction --prefer-source --dev'
+  - 'composer self-update'
+  - 'composer install --no-interaction --prefer-source'
