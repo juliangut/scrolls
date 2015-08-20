@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ruleset name="{ProjectName} PHPMD Rule Set"
+<ruleset name="PHPMD Rule Set"
          xmlns="http://pmd.sf.net/ruleset/1.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0
                         http://pmd.sf.net/ruleset_xml_schema.xsd"
          xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
-    <description>{ProjectName} PHPMD Rule Set</description>
+    <description>PHPMD Rule Set</description>
 
     <!-- Unused code rules -->
     <!-- <rule ref="rulesets/unusedcode.xml" /> -->
@@ -18,7 +18,6 @@
     <rule ref="rulesets/unusedcode.xml/UnusedLocalVariable"/>
     <!-- Unused method parameter -->
     <rule ref="rulesets/unusedcode.xml/UnusedFormalParameter"/>
-
 
     <!-- Naming rules -->
     <!-- <rule ref="rulesets/naming.xml" /> -->
@@ -45,12 +44,11 @@
         </properties>
     </rule>
     <!-- Variable maximum length (20) -->
-    <!-- <rule ref="rulesets/naming.xml/LongVariable">
+    <rule ref="rulesets/naming.xml/LongVariable">
         <properties>
             <property name="maximum" value="20"/>
         </properties>
-    </rule> -->
-
+    </rule>
 
     <!-- Design rules -->
     <!-- <rule ref="rulesets/design.xml" /> -->
@@ -79,7 +77,6 @@
         </properties>
     </rule>
 
-
     <!-- Controversial rules -->
     <!-- <rule ref="rulesets/controversial.xml" /> -->
     <!-- Avoid superglobals -->
@@ -94,7 +91,6 @@
     <rule ref="rulesets/controversial.xml/CamelCaseParameterName" />
     <!-- Use camelCase class method variable names -->
     <!-- <rule ref="rulesets/controversial.xml/CamelCaseVariableName" /> -->
-
 
     <!-- Code size rules -->
     <!-- <rule ref="rulesets/codesize.xml" /> -->
