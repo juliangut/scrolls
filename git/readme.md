@@ -207,15 +207,35 @@ Then you can add `diff=exif` to `.gitattributes` file
 yum install exiftool
 ```
 
+### GIT bash completion
+
+In case you don't have bash git commands completion already you can add it with `git-completion.sh`
+
+The script can be found alonside this document or can be downloaded from:
+
+```bash
+curl http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash -o ~/.git-completion.sh
+```
+
+Put the file in your home directory and add the following lines to ~/.bashrc
+
+```bash
+if [ -f ~/.git-completion.sh ]; then
+    source ~/.git-completion.sh
+fi
+```
+
 ## GIT information on bash
 
-git-prompt shell script can be found alonside this document or be downloaded from:
+If you want to show current git branch on bash prompt you can use `git-prompt.sh`
+
+The script can be found alonside this document or can be downloaded from:
 
 ```bash
 curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 ```
 
-add this lines to ~/.bashrc
+Put the file in your home directory and add the following lines to ~/.bashrc
 
 ```bash
 function __shorten_pwd()
@@ -238,24 +258,33 @@ CYAN="\[\033[0;36m\]"
 WHITE="\[\033[0;37m\]"
 NONE="\[\033[0m\]"
 
-source ~/.git-prompt.sh
-PS1="[$CYAN\u@\h \W$YELLOWBOLD\$(__git_ps1)$NONE]\$  "
-/*PS1="[$CYAN\u@\h \$(__shorten_pwd)$YELLOWBOLD\$(__git_ps1)$NONE]\$  "*/
+if [ -f ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
+
+    PS1="[$CYAN\u@\h \W$YELLOWBOLD\$(__git_ps1)$NONE]\$  "
+    /*PS1="[$CYAN\u@\h \$(__shorten_pwd)$YELLOWBOLD\$(__git_ps1)$NONE]\$  "*/
+else
+    PS1="[$CYAN\u@\h \W$NONE]\$  "
+    /*PS1="[$CYAN\u@\h \$(__shorten_pwd)$NONE]\$  "*/
+fi
 export PS1
 ```
 
-or make your own combination
+Or you can make your own combination
+
 * `\h` hostname up to the first `.`
 * `\u` current user
-* `\W` basename of current working directory, with `$HOME` abbreviated with a tilde
+* `\W` basename of current working directory, with `$HOME` abbreviated with a tilde (`~`)
 * `\$(__git_ps1)` displays current git branch
-* `\$(__shorten_pwd)` shortens pwd (otherwise `\W`)
+* `\$(__shorten_pwd)` shortens pwd (otherwise use `\W`)
 
 ### Modifiers
 
+This modifiers can be added to show extra information about current status following branch name
+
 #### Untracked files
 
-A symbol will be shown following branch name to indicate untracked files: [%]
+A symbol (`%`) will be shown to indicate untracked files
 
 Add the following to `~/.bashrc`
 
@@ -266,7 +295,9 @@ export GIT_PS1_SHOWUNTRACKEDFILES
 
 #### Stage state
 
-A symbol will be shown following branch name to indicate file changes: `*` for unstaged and `+` for staged
+A symbol will be shown to indicate stage status:
+* `*` for unstaged files
+* `+` for already staged files
 
 Add the following to `~/.bashrc`
 
@@ -277,7 +308,12 @@ export GIT_PS1_SHOWDIRTYSTATE
 
 #### Branch status
 
-A symbol will be shown following branch name to show comparison with HEAD: `=` no difference, `<` you are behind, `>` you are ahead, and `<>` you have diverged
+A symbol will be shown to indicate comparison status with remote:
+
+* `=` no difference
+* `<` you are behind remote
+* `>` you are ahead remote
+* `<>` you have diverged from remote
 
 Add the following to `~/.bashrc`
 
