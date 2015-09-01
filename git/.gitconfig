@@ -17,15 +17,18 @@
     remote  = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red
-    new = green
+    meta       = yellow bold
+    frag       = magenta bold
+    old        = red
+    new        = green
+    whitespace = white reverse
 
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+    added     = green bold
+    updated   = green
+    changed   = yellow
+    untracked = magenta
+    nobranch  = red
 
 [alias]
     clone = clone --recursive
@@ -34,10 +37,10 @@
     lg      = log --name-only
     history = log -p
 
-    br       = branch
-    go       = checkout
-    co       = checkout
-    branches = branch -a
+    br  = branch
+    brs = branch -a
+    go  = checkout
+    co  = checkout
 
     add     = add --all
     stage   = add
@@ -57,12 +60,12 @@
 
     unstash = stash apply
 
-    remotes = remote -v
+    remotes      = remote -v
     contributors = shortlog --summary --numbered
 
     ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
 
-    graph    = log --graph --pretty='%C(bold blue)%h%Creset %C(bold yellow)%d%Creset %C(bold green)(%cr)%Creset %C(cyan)%ci%Creset %C(dim white)<%an>%Creset %s' --abbrev-commit --decorate
+    gr       = log --graph --pretty='%C(bold blue)%h%Creset %C(bold yellow)%d%Creset %C(bold green)(%cr)%Creset %C(cyan)%ci%Creset %C(dim white)<%an>%Creset %s' --abbrev-commit --decorate
     visual   = !gitg --all &
     conflict = !gitg --left-right HEAD...MERGE_HEAD
 

@@ -29,14 +29,19 @@ git config --global color.diff.meta 'yellow bold'
 git config --global color.diff.frag 'magenta bold'
 git config --global color.diff.old red
 git config --global color.diff.new green
+git config --global color.diff.whitespace 'white reverse'
 ```
 
 #### Status
 ```bash
-git config --global color.status.added yellow
-git config --global color.status.changed green
-git config --global color.status.untracked cyan
+git config --global color.status.added 'green bold'
+git config --global color.status.updated green
+git config --global color.status.changed yellow
+git config --global color.status.untracked magenta
+git config --global color.status.nobranch red
 ```
+
+*Mind this color schemes are for dark themed consoles*
 
 ## Important
 
@@ -113,9 +118,9 @@ git config --global alias.history 'log -p'
 
 ```bash
 git config --global alias.br brach
+git config --global alias.brs 'branch -a'
 git config --global alias.go checkout
 git config --global alias.co checkout
-git config --global alias.branches 'branch -a'
 ```
 
 ### Staging
@@ -173,7 +178,7 @@ git config --global alias.ignore '!([ ! -e .gitignore ] && touch .gitignore) | e
 Graphical tools and views
 
 ```bash
-git config --global alias.graph "log --graph --all --format=format:'%C(bold blue)%h%Creset%C(bold yellow) %d%Creset - %C(cyan)%aD%Creset %Cgreen(%ar)%Creset - %C(magenta)%an%Creset - %s' --abbrev-commit"
+git config --global alias.gr "log --graph --all --format=format:'%C(bold blue)%h%Creset%C(bold yellow) %d%Creset - %C(cyan)%aD%Creset %Cgreen(%ar)%Creset - %C(magenta)%an%Creset - %s' --abbrev-commit"
 git config --global alias.visual '!gitg --all &'
 git config --global alias.conflict '!gitg --left-right HEAD...MERGE_HEAD'
 ```
@@ -228,14 +233,14 @@ function __shorten_pwd()
     fi
 }
 
-YELLOW="\[\033[1;33m\]"
+YELLOWBOLD="\[\033[1;33m\]"
 CYAN="\[\033[0;36m\]"
 WHITE="\[\033[0;37m\]"
 NONE="\[\033[0m\]"
 
 source ~/.git-prompt.sh
-PS1="[$CYAN\u@\h \W$YELLOW\$(__git_ps1)$NONE]\$  "
-/*PS1="[$CYAN\u@\h \$(__shorten_pwd)$YELLOW\$(__git_ps1)$NONE]\$  "*/
+PS1="[$CYAN\u@\h \W$YELLOWBOLD\$(__git_ps1)$NONE]\$  "
+/*PS1="[$CYAN\u@\h \$(__shorten_pwd)$YELLOWBOLD\$(__git_ps1)$NONE]\$  "*/
 export PS1
 ```
 
