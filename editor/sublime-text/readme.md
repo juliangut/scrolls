@@ -9,10 +9,10 @@ Open Text Console on Sublime Text by typing ```ctrl+` ```
 In Text console type:
 
 ```
-import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
 ```
 
-(As shown on https://sublime.wbond.net/installation)
+(As shown on [https://packagecontrol.io/installation](https://packagecontrol.io/installation))
 
 Restart Sublime Text
 
@@ -33,7 +33,7 @@ Type Remove, select `Package Control: Remove Package` and browse for the package
 Add Go to definition on `Ctrl + Click`
 
 ```
-vim ~/.gitconfig/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-mousemap
+vim ~/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-mousemap
 ```
 
 Add the following and save
@@ -75,6 +75,11 @@ Add the following and save
 * [PHP Companion](https://github.com/erichard/SublimePHPCompanion)
 * [Phpcs](http://benmatselby.github.io/sublime-phpcs/)
 
+### JSON
+
+* [JSONLint](https://bitbucket.org/hmml/jsonlint)
+* [JSON Reindent](https://github.com/ThomasKliszowski/json_reindent)
+
 ### Apache
 
 * [ApacheConf.tmLanguage](https://github.com/colinta/ApacheConf.tmLanguage)
@@ -84,7 +89,7 @@ Add the following and save
 * [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter)
 * [SideBarEnhancements](https://github.com/titoBouzout/SideBarEnhancements)
 * [Monokai Extended](https://github.com/jonschlinkert/sublime-monokai-extended)
-* [Theme - predawn](https://github.com/jamiewilson/predawn/) ("theme": "predawn.sublime-theme")
+* [Predawn](https://github.com/jamiewilson/predawn/) ("theme": "predawn.sublime-theme")
 * [Theme - Brogrammer](https://github.com/kenwheeler/brogrammer-theme) ("theme": "Brogrammer.sublime-theme")
 
 ### Other
@@ -93,6 +98,10 @@ Add the following and save
 * [DocBlockr](https://github.com/spadgos/sublime-jsdocs)
 * [Markdown Extended](https://github.com/jonschlinkert/sublime-markdown-extended)
 * [Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview)
+
+## Font
+
+Adobe [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) font is really nice for coding.
 
 ## Example Preferences
 
