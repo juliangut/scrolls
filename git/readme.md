@@ -321,3 +321,19 @@ Add the following to `~/.bashrc`
 GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWUPSTREAM
 ```
+
+## Rewrite commiter history
+
+In case of comitting with a wrong user configuration, maybe not from your own computer, there is a last resort to rewrite commiter information.
+
+Copy and update `git-rewrite-commiter.sh` with the correct user information on a fresh copy of the repository.
+
+Finally run
+
+```bash
+bash ./git-rewrite-commmiter.sh
+git push --force --tags origin 'refs/heads/*'
+```
+
+And delete the fresh copy of the repository as it's not needed any more
+
