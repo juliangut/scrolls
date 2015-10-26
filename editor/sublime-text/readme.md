@@ -54,54 +54,89 @@ Add the following and save
 
 ### General
 
-* [SublimeCodeIntel](https://sublimecodeintel.github.io/SublimeCodeIntel/)
-* [SublimeLinter](http://www.sublimelinter.com/)
-* [SublimeGit](https://sublimegit.net/)
+* [All Autocomplete](https://github.com/alienhard/SublimeAllAutocomplete)
+    Extends the default autocomplete to find matches in all open files
 * [EditorConfig](http://editorconfig.org/)
-* [AllAutocomplete](https://github.com/alienhard/SublimeAllAutocomplete)
+    Helps developers define and maintain consistent coding styles between different editors and IDEs
+* [SublimeCodeIntel](https://sublimecodeintel.github.io/SublimeCodeIntel/)
+    A full-featured code intelligence and smart autocomplete engine for Sublime Text
+* [SublimeGit](https://sublimegit.net/)
+    Full-featured Git integration
+* [SublimeLinter](http://www.sublimelinter.com/)
+    A framework for linting code
 
 ### GIT
 
 * [Git Config](https://github.com/robballou/gitconfig-sublimetext)
-* [GitGutter](http://www.jisaacks.com/gitgutter)
+    Simple settings for .gitconfig and .gitignore files
+* [GitGutter](https://github.com/jisaacks/GitGutter)
+    Shows an icon in the gutter area indicating whether a line has been inserted, modified or deleted
+* [SublimeGit](https://sublimegit.net)
+    Full-featured Git integration
 
 ### CSS
 
 * [Sublime-CSS3](https://github.com/i-akhmadullin/Sublime-CSS3)
+    CSS3 syntax highlight
 * [SCSS](https://github.com/MarioRicalde/SCSS.tmbundle/tree/SublimeText2)
+    Sass & SCSS syntax package
 
 ### PHP
 
 * [PHP Companion](https://github.com/erichard/SublimePHPCompanion)
+    Provides cool stuff for PHP 5.3+ coding session
 * [Phpcs](http://benmatselby.github.io/sublime-phpcs/)
+    PHP CodeSniffer, PHP Coding Standard Fixer, Linter and Mess Detector Support
 
 ### JSON
 
 * [JSONLint](https://bitbucket.org/hmml/jsonlint)
+    Finds issues in JSON files
 * [JSON Reindent](https://github.com/ThomasKliszowski/json_reindent)
+    Reindent JSON file or selection
+
+### Markdown
+
+* [Markdown Extended](https://github.com/jonschlinkert/sublime-markdown-extended)
+    Markdown syntax support
+* [Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview)
+    Preview and build your markdown files quickly in your web browser
 
 ### Apache
 
 * [ApacheConf.tmLanguage](https://github.com/colinta/ApacheConf.tmLanguage)
+    Apache Conf Syntax Highlighting
 
 ### Interface
 
 * [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter)
+    Matches a variety of brackets, [], {}, () ...
 * [SideBarEnhancements](https://github.com/titoBouzout/SideBarEnhancements)
+    Provides enhancements to the operations on Sidebar of Files and Folders
+
+### Syntax
+
 * [Monokai Extended](https://github.com/jonschlinkert/sublime-monokai-extended)
-* [Predawn](https://github.com/jamiewilson/predawn/) ("theme": "predawn.sublime-theme")
-* [Theme - Brogrammer](https://github.com/kenwheeler/brogrammer-theme) ("theme": "Brogrammer.sublime-theme")
+    Extends Monokai from Soda with additional syntax highlighting
+
+### Themes
+
+* [Predawn](https://github.com/jamiewilson/predawn/)
+    A dark interface and syntax theme ("theme": "predawn.sublime-theme")
+* [Theme - Brogrammer](https://github.com/kenwheeler/brogrammer-theme)
+    Brogrammer is a flat sexy theme ("theme": "Brogrammer.sublime-theme")
 
 ### Other
 
 * [Alignment](http://wbond.net/sublime_packages/alignment)
+    Dead-simple alignment of multi-line selections and multiple selections
 * [DocBlockr](https://github.com/spadgos/sublime-jsdocs)
-* [Markdown Extended](https://github.com/jonschlinkert/sublime-markdown-extended)
-* [Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview)
+    Makes writing documentation a breeze
 
 ## Font
 
-Adobe [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) font is really nice for coding.
+* [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
+    This font from Adobe is really nice for coding
 
 ## Example Preferences
 
