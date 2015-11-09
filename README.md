@@ -6,6 +6,9 @@ or just to share with collegues.
 
 ## Code Analysis Tools
 
+* .coveralls.yml [Coveralls](https://coveralls.io/) template
+* .scrutinizer.yml [Scrutinizer](https://scrutinizer-ci.com/) template
+* .travis.yml [Travis](https://travis-ci.org/) template
 * phpunit.xml [PHPUnit](https://phpunit.de/) template
 * phpcs.xml [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer) template
 * phpmd.xml [PHPMD](https://github.com/phpmd/phpmd) template
