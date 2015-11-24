@@ -20,14 +20,14 @@ Default keys are named `id_rsa` for private key and `id_rsa.pub` for public key
 ssh-keygen -t rsa -C "your@email.com"
 ```
 
-You'll be asked to enter a name for the key, if none provided default name id_rsa is used
+You'll be asked to enter a name for the key, if none provided default name `id_rsa` is used
 
 #### Passphrase
 
 In the process of generating a key pair you'll be asked to assign a passphrase to it to protect the key from being
 accessed by other person.
 
-It is a good thing to do although not an unavoidable step.
+It is a good thing to do although not a mandatory step.
 
 ## Configuration
 
@@ -45,8 +45,8 @@ To alias a server and avoid selecting user to that server
 
 ```
 Host alias_name
-HostName host.example.com
-User user_name
+    HostName host.example.com
+    User user_name
 ```
 
 ### Using SSH key per host
@@ -60,16 +60,16 @@ IdentityFile ~/.ssh/ssh_private_key_file
 #### Example of different keys per host
 
 ```
-// default id_rsa ssh key file name
-IdentityFile ~/.ssh/user_name_ssh_private_key
+#default id_rsa ssh key file name
+IdentityFile ~/.ssh/id_rsa
 
-Host host_one_name
-HostName host_one.example.com
-IdentityFile ~/.ssh/host_one_user_ssh_private_key
-User host_one_user_name
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_github
 
-Host host_two_name
-HostName host_two.example.com
-IdentityFile ~/.ssh/host_two_user_ssh_private_key
-User host_two_user_name
+Host bitbucket.org
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/id_rsa_bitbucket
 ```
