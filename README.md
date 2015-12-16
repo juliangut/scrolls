@@ -33,6 +33,10 @@ Or just to share with collegues.
 * General information / configuration
 * Preferences
 
+### [VIM](http://www.vim.org/)
+
+* .vimrc example
+
 ## GIT
 
 * General information / configuration
