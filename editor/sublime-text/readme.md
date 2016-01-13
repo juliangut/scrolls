@@ -60,8 +60,6 @@ Add the following and save
     Helps developers define and maintain consistent coding styles between different editors and IDEs
 * [SublimeCodeIntel](https://sublimecodeintel.github.io/SublimeCodeIntel/)
     A full-featured code intelligence and smart autocomplete engine for Sublime Text
-* [SublimeGit](https://sublimegit.net/)
-    Full-featured Git integration
 * [SublimeLinter](http://www.sublimelinter.com/)
     A framework for linting code
 
@@ -85,6 +83,8 @@ Add the following and save
 
 * [PHP Companion](https://github.com/erichard/SublimePHPCompanion)
     Provides cool stuff for PHP 5.3+ coding session
+* [PHPIntel](https://github.com/jotson/SublimePHPIntel)
+    PHP functions and objects auto-completion
 * [Phpcs](http://benmatselby.github.io/sublime-phpcs/)
     PHP CodeSniffer, PHP Coding Standard Fixer, Linter and Mess Detector Support
 
@@ -102,11 +102,6 @@ Add the following and save
 * [Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview)
     Preview and build your markdown files quickly in your web browser
 
-### Apache
-
-* [ApacheConf.tmLanguage](https://github.com/colinta/ApacheConf.tmLanguage)
-    Apache Conf Syntax Highlighting
-
 ### Interface
 
 * [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter)
@@ -118,6 +113,10 @@ Add the following and save
 
 * [Monokai Extended](https://github.com/jonschlinkert/sublime-monokai-extended)
     Extends Monokai from Soda with additional syntax highlighting
+* [ApacheConf.tmLanguage](https://github.com/colinta/ApacheConf.tmLanguage)
+    Apache Conf Syntax Highlighting
+* [nginx](https://github.com/brandonwamboldt/sublime-nginx)
+    Nginx Syntax Highlighting
 
 ### Themes
 
