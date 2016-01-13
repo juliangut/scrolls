@@ -117,8 +117,8 @@ git config --global alias.history 'log -p'
 ### Branches
 
 ```bash
-git config --global alias.br brach
-git config --global alias.brs 'branch -a'
+git config --global alias.br 'branch -v'
+git config --global alias.brs 'branch -va'
 git config --global alias.go checkout
 git config --global alias.co checkout
 ```
@@ -152,6 +152,7 @@ git config --global alias.df diff
 git config --global alias.tags 'tag -l'
 git config --global alias.pullt 'fetch --tags'
 git config --global alias.pusht 'push --tags'
+git config --global alias.retag '!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r'
 ```
 
 ### Stashing
@@ -185,10 +186,16 @@ git config --global alias.conflict '!gitg --left-right HEAD...MERGE_HEAD'
 
 ### Diffs
 
+Improve diffs
+
+```bash
+git config --global diff.algorithm patience
+```
+
 Detect copies as well as renames
 
 ```bash
-git config --global diff.renames = copies
+git config --global diff.renames copies
 ```
 
 #### Images

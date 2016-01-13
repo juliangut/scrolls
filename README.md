@@ -1,8 +1,9 @@
 # Scrolls
 
 Personal knowledge base I need to browse for, normally when I'm on
-a new computer or I have to format mine due to "too much playing",
-or just to share with collegues.
+a new computer or I have to format mine due to "too much playing".
+
+Or just to share with collegues.
 
 ## Code Analysis Tools
 
@@ -31,6 +32,10 @@ or just to share with collegues.
 
 * General information / configuration
 * Preferences
+
+### [VIM](http://www.vim.org/)
+
+* .vimrc example
 
 ## GIT
 
