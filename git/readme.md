@@ -260,19 +260,19 @@ function __shorten_pwd()
     fi
 }
 
-YELLOWBOLD="\[\033[1;33m\]"
-CYAN="\[\033[0;36m\]"
-WHITE="\[\033[0;37m\]"
-NONE="\[\033[0m\]"
+DEFAULT="\[\e[0;39m\]"
+BOLDYELLOW="\[\e[1;33m\]"
+DARKGRAY="\[\e[0;90m\]"
+LIGHTCYAN="\[\e[0;96m\]"
 
 if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
 
-    PS1="[$CYAN\u@\h \W$YELLOWBOLD\$(__git_ps1)$NONE]\$  "
-    /*PS1="[$CYAN\u@\h \$(__shorten_pwd)$YELLOWBOLD\$(__git_ps1)$NONE]\$  "*/
+    PS1="$LIGHTCYAN\u $DARKGRAY\W$BOLDYELLOW$(__git_ps1)$DEFAULT \$  "
+    /*PS1="$LIGHTCYAN\u $DARKGRAY$(__shorten_pwd)$BOLDYELLOW$(__git_ps1)$DEFAULT \$  "*/
 else
-    PS1="[$CYAN\u@\h \W$NONE]\$  "
-    /*PS1="[$CYAN\u@\h \$(__shorten_pwd)$NONE]\$  "*/
+    PS1="[$LIGHTCYAN\u $DARKGRAY\W$DEFAULT \$  "
+    /*PS1="$LIGHTCYAN\u $DARKGRAY$(__shorten_pwd)$DEFAULT \$  "*/
 fi
 export PS1
 ```
@@ -288,6 +288,17 @@ Or you can make your own combination
 ### Modifiers
 
 This modifiers can be added to show extra information about current status following branch name
+
+#### Stash state
+
+A symbol (`$`) will be shown to indicate stashed files
+
+Add the following to `~/.bashrc`
+
+```bash
+GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWSTASHSTATE
+```
 
 #### Untracked files
 
