@@ -268,11 +268,11 @@ LIGHTCYAN="\[\e[0;96m\]"
 if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
 
-    PS1="$LIGHTCYAN\u $DARKGRAY\W$BOLDYELLOW$(__git_ps1)$DEFAULT \$  "
-    /*PS1="$LIGHTCYAN\u $DARKGRAY$(__shorten_pwd)$BOLDYELLOW$(__git_ps1)$DEFAULT \$  "*/
+    PS1="$LIGHTCYAN\u $DARKGRAY\W$BOLDYELLOW\$(__git_ps1)$DEFAULT \$  "
+    /*PS1="$LIGHTCYAN\u $DARKGRAY\$(__shorten_pwd)$BOLDYELLOW\$(__git_ps1)$DEFAULT \$  "*/
 else
     PS1="[$LIGHTCYAN\u $DARKGRAY\W$DEFAULT \$  "
-    /*PS1="$LIGHTCYAN\u $DARKGRAY$(__shorten_pwd)$DEFAULT \$  "*/
+    /*PS1="$LIGHTCYAN\u $DARKGRAY\$(__shorten_pwd)$DEFAULT \$  "*/
 fi
 export PS1
 ```
