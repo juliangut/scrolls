@@ -33,8 +33,9 @@
 [alias]
     clone = clone --recursive
 
-    st      = status
+    st      = status -s
     lg      = log --name-only
+    lgr     = log --graph --format=format:'%C(bold blue)%h%Creset%C(bold yellow) %d%Creset - %C(cyan)%aD%Creset %Cgreen(%ar)%Creset - %C(magenta)%an%Creset - %s' --abbrev-commit
     history = log -p
 
     br  = branch -v
@@ -48,11 +49,12 @@
     discard = checkout --
 
     ci    = commit
-    amend = commit --amend
+    amend = commit --amend --reuse-message=HEAD
     pulla = pull --all
     pusha = push --all
 
-    df = diff
+    diff = diff --abbrev
+    df   = diff --color-words
 
     tags  = tag -l
     pullt = fetch --tags
@@ -66,7 +68,6 @@
 
     ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
 
-    gr       = log --graph --pretty='%C(bold blue)%h%Creset %C(bold yellow)%d%Creset %C(bold green)(%cr)%Creset %C(cyan)%ci%Creset %C(dim white)<%an>%Creset %s' --abbrev-commit --decorate
     visual   = !gitg --all &
     conflict = !gitg --left-right HEAD...MERGE_HEAD
 

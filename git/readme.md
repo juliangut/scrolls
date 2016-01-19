@@ -109,8 +109,9 @@ git config --global alias.clone 'clone --recursive'
 ### Status
 
 ```bash
-git config --global alias.st status
+git config --global alias.st 'status -s'
 git config --global alias.lg 'log --name-only'
+git config --global alias.lgr "log --graph --format=format:'%C(bold blue)%h%Creset%C(bold yellow) %d%Creset - %C(cyan)%aD%Creset %Cgreen(%ar)%Creset - %C(magenta)%an%Creset - %s' --abbrev-commit"
 git config --global alias.history 'log -p'
 ```
 
@@ -119,8 +120,7 @@ git config --global alias.history 'log -p'
 ```bash
 git config --global alias.br 'branch -v'
 git config --global alias.brs 'branch -va'
-git config --global alias.go checkout
-git config --global alias.co checkout
+git config --global alias.go "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 ```
 
 ### Staging
@@ -135,7 +135,7 @@ git config --global alias.discard 'checkout --'
 
 ```bash
 git config --global alias.ci commit
-git config --global alias.amend 'commit --amend'
+git config --global alias.amend 'commit --amend --reuse-message=HEAD'
 git config --global alias.pulla 'pull --all'
 git config --global alias.pusha 'push --all'
 ```
@@ -143,7 +143,8 @@ git config --global alias.pusha 'push --all'
 ### Diffs
 
 ```bash
-git config --global alias.df diff
+git config --global alias.diff 'diff --abbrev'
+git config --global alias.df 'diff --color-words'
 ```
 
 ### Tags
@@ -179,7 +180,6 @@ git config --global alias.ignore '!([ ! -e .gitignore ] && touch .gitignore) | e
 Graphical tools and views
 
 ```bash
-git config --global alias.gr "log --graph --all --format=format:'%C(bold blue)%h%Creset%C(bold yellow) %d%Creset - %C(cyan)%aD%Creset %Cgreen(%ar)%Creset - %C(magenta)%an%Creset - %s' --abbrev-commit"
 git config --global alias.visual '!gitg --all &'
 git config --global alias.conflict '!gitg --left-right HEAD...MERGE_HEAD'
 ```
