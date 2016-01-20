@@ -120,7 +120,8 @@ git config --global alias.history 'log -p'
 ```bash
 git config --global alias.br 'branch -v'
 git config --global alias.brs 'branch -va'
-git config --global alias.go "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+git config --global alias.go checkout
+git config --global alias.co "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 ```
 
 ### Staging
@@ -143,8 +144,8 @@ git config --global alias.pusha 'push --all'
 ### Diffs
 
 ```bash
-git config --global alias.diff 'diff --abbrev'
-git config --global alias.df 'diff --color-words'
+git config --global alias.df 'diff --abbrev'
+git config --global alias.dfw 'diff --abbrev --color-words'
 ```
 
 ### Tags

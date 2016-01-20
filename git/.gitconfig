@@ -40,7 +40,8 @@
 
     br  = branch -v
     brs = branch -va
-    go  = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+    go  = checkout
+    co  = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
     add     = add --all
     stage   = add
@@ -52,8 +53,8 @@
     pulla = pull --all
     pusha = push --all
 
-    diff = diff --abbrev
-    df   = diff --color-words
+    df  = diff --abbrev
+    dfw = diff --abbrev --color-words
 
     tags  = tag -l
     pullt = fetch --tags
