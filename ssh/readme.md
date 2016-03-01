@@ -39,6 +39,17 @@ SSH configuration file is located under .ssh directory on user's home directory
 cat ~/.ssh/config
 ```
 
+## Certificates
+
+### PEM
+
+In order to generate a `.pem` certificate from generated ssh key
+
+```bash
+openssl rsa -in ~/.ssh/id_rsa -outform pem > ~/.ssh/id_rsa.pem
+chmod 700 ~/.ssh/id_rsa.pem
+```
+
 ### Aliases
 
 To alias a server and avoid selecting user to that server
