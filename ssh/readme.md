@@ -17,7 +17,7 @@ Default keys are named `id_rsa` for private key and `id_rsa.pub` for public key
 ### Key generation
 
 ```bash
-ssh-keygen -t rsa -C "your@email.com"
+ssh-keygen -t rsa -b 2048 -C "your@email.com"
 ```
 
 You'll be asked to enter a name for the key, if none provided default name `id_rsa` is used
@@ -25,7 +25,7 @@ You'll be asked to enter a name for the key, if none provided default name `id_r
 #### Passphrase
 
 In the process of generating a key pair you'll be asked to assign a passphrase to it to protect the key from being
-accessed by other person.
+accessed by another person.
 
 It is a good thing to do although not a mandatory step.
 
@@ -47,6 +47,13 @@ In order to generate a `.pem` certificate from generated ssh key
 
 ```bash
 openssl rsa -in ~/.ssh/id_rsa -outform pem > ~/.ssh/id_rsa.pem
+chmod 700 ~/.ssh/id_rsa.pem
+```
+
+If a passphrase was used in key pair generation you need to provide it
+
+```bash
+openssl rsa -in ~/.ssh/id_rsa -passin -outform pem > ~/.ssh/id_rsa.pem
 chmod 700 ~/.ssh/id_rsa.pem
 ```
 
