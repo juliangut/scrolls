@@ -2,6 +2,9 @@
 set encoding=utf-8 nobomb " BOM causes trouble
 set fileformats=unix,dos,mac " Support in this order
 
+" Autoload plugins located at ~/.vim/bundle
+execute pathogen#infect()
+
 " Editor
 syntax on
 colorscheme molokai " Located at ~/.vim/colors
