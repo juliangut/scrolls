@@ -48,6 +48,8 @@
     unstage = reset HEAD
     discard = checkout --
 
+    untrack = rm --cached
+
     ci    = commit
     amend = commit --amend --reuse-message=HEAD
     pulla = pull --all

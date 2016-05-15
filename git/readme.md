@@ -139,6 +139,7 @@ git config --global alias.ci commit
 git config --global alias.amend 'commit --amend --reuse-message=HEAD'
 git config --global alias.pulla 'pull --all'
 git config --global alias.pusha 'push --all'
+git config --global alias.untrack 'rm --cached'
 ```
 
 ### Diffs
