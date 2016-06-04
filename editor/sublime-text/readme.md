@@ -136,6 +136,8 @@ Add the following and save
 
 * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
     This font from Adobe is really nice for coding
+* [Monoid](https://github.com/larsenwork/monoid) Coding ligatures aware font
+* [FiraCode](https://github.com/tonsky/FiraCode) Another ligatures aware font
 
 ## Example Preferences
 
