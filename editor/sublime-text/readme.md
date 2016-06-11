@@ -54,90 +54,59 @@ Add the following and save
 
 ### General
 
-* [All Autocomplete](https://github.com/alienhard/SublimeAllAutocomplete)
-    Extends the default autocomplete to find matches in all open files
-* [EditorConfig](http://editorconfig.org/)
-    Helps developers define and maintain consistent coding styles between different editors and IDEs
-* [SublimeCodeIntel](https://sublimecodeintel.github.io/SublimeCodeIntel/)
-    A full-featured code intelligence and smart autocomplete engine for Sublime Text
-* [SublimeLinter](http://www.sublimelinter.com/)
-    A framework for linting code
+* [All Autocomplete](https://github.com/alienhard/SublimeAllAutocomplete) Extends the default autocomplete to find matches in all open files
+* [EditorConfig](http://editorconfig.org/) Helps developers define and maintain consistent coding styles between different editors and IDEs
+* [SublimeCodeIntel](https://sublimecodeintel.github.io/SublimeCodeIntel/) A full-featured code intelligence and smart autocomplete engine for Sublime Text
+* [SublimeLinter](http://www.sublimelinter.com/) A framework for linting code
 
 ### GIT
 
-* [Git Config](https://github.com/robballou/gitconfig-sublimetext)
-    Simple settings for .gitconfig and .gitignore files
-* [GitGutter](https://github.com/jisaacks/GitGutter)
-    Shows an icon in the gutter area indicating whether a line has been inserted, modified or deleted
-* [SublimeGit](https://sublimegit.net)
-    Full-featured Git integration
+* [Git Config](https://github.com/robballou/gitconfig-sublimetext) Simple settings for .gitconfig and .gitignore files
+* [GitGutter](https://github.com/jisaacks/GitGutter) Shows an icon in the gutter area indicating whether a line has been inserted, modified or deleted
+* [SublimeGit](https://sublimegit.net) Full-featured Git integration
 
 ### CSS
 
-* [Sublime-CSS3](https://github.com/i-akhmadullin/Sublime-CSS3)
-    CSS3 syntax highlight
-* [SCSS](https://github.com/MarioRicalde/SCSS.tmbundle/tree/SublimeText2)
-    Sass & SCSS syntax package
+* [Sublime-CSS3](https://github.com/i-akhmadullin/Sublime-CSS3) CSS3 syntax highlight
+* [SCSS](https://github.com/MarioRicalde/SCSS.tmbundle/tree/SublimeText2) Sass & SCSS syntax package
 
 ### PHP
 
-* [PHP Companion](https://github.com/erichard/SublimePHPCompanion)
-    Provides cool stuff for PHP 5.3+ coding session
-* [PHPIntel](https://github.com/jotson/SublimePHPIntel)
-    PHP functions and objects auto-completion
-* [Phpcs](http://benmatselby.github.io/sublime-phpcs/)
-    PHP CodeSniffer, PHP Coding Standard Fixer, Linter and Mess Detector Support
+* [PHP Companion](https://github.com/erichard/SublimePHPCompanion) Provides cool stuff for PHP 5.3+ coding session
+* [PHPIntel](https://github.com/jotson/SublimePHPIntel) PHP functions and objects auto-completion
+* [Phpcs](http://benmatselby.github.io/sublime-phpcs/) PHP CodeSniffer, PHP Coding Standard Fixer, Linter and Mess Detector Support
 
 ### JSON
 
-* [JSONLint](https://bitbucket.org/hmml/jsonlint)
-    Finds issues in JSON files
-* [JSON Reindent](https://github.com/ThomasKliszowski/json_reindent)
-    Reindent JSON file or selection
+* [JSONLint](https://bitbucket.org/hmml/jsonlint) Finds issues in JSON files
+* [JSON Reindent](https://github.com/ThomasKliszowski/json_reindent) Reindent JSON file or selection
 
 ### Markdown
 
-* [Markdown Extended](https://github.com/jonschlinkert/sublime-markdown-extended)
-    Markdown syntax support
-* [Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview)
-    Preview and build your markdown files quickly in your web browser
+* [Markdown Extended](https://github.com/jonschlinkert/sublime-markdown-extended) Markdown syntax support
+* [Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview) Preview and build your markdown files quickly in your web browser
 
 ### Interface
 
-* [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter)
-    Matches a variety of brackets, [], {}, () ...
-* [SideBarEnhancements](https://github.com/titoBouzout/SideBarEnhancements)
-    Provides enhancements to the operations on Sidebar of Files and Folders
+* [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter) Matches a variety of brackets, [], {}, () ...
+* [SideBarEnhancements](https://github.com/titoBouzout/SideBarEnhancements) Provides enhancements to the operations on Sidebar of Files and Folders
 
 ### Syntax
 
-* [Monokai Extended](https://github.com/jonschlinkert/sublime-monokai-extended)
-    Extends Monokai from Soda with additional syntax highlighting
-* [ApacheConf.tmLanguage](https://github.com/colinta/ApacheConf.tmLanguage)
-    Apache Conf Syntax Highlighting
-* [nginx](https://github.com/brandonwamboldt/sublime-nginx)
-    Nginx Syntax Highlighting
+* [Monokai Extended](https://github.com/jonschlinkert/sublime-monokai-extended) Extends Monokai from Soda with additional syntax highlighting
+* [ApacheConf.tmLanguage](https://github.com/colinta/ApacheConf.tmLanguage) Apache Conf Syntax Highlighting
+* [nginx](https://github.com/brandonwamboldt/sublime-nginx) Nginx Syntax Highlighting
 
 ### Themes
 
-* [Predawn](https://github.com/jamiewilson/predawn/)
-    A dark interface and syntax theme ("theme": "predawn.sublime-theme")
-* [Theme - Brogrammer](https://github.com/kenwheeler/brogrammer-theme)
-    Brogrammer is a flat sexy theme ("theme": "Brogrammer.sublime-theme")
+* [Material-theme](https://github.com/equinusocio/material-theme) Dark interface and icons change ("theme": "Material-Theme-Darker.sublime-theme")
+* [Predawn](https://github.com/jamiewilson/predawn/) A dark interface and syntax theme ("theme": "predawn.sublime-theme")
+* [Theme - Brogrammer](https://github.com/kenwheeler/brogrammer-theme) Brogrammer is a flat sexy theme ("theme": "Brogrammer.sublime-theme")
 
 ### Other
 
-* [Alignment](http://wbond.net/sublime_packages/alignment)
-    Dead-simple alignment of multi-line selections and multiple selections
-* [DocBlockr](https://github.com/spadgos/sublime-jsdocs)
-    Makes writing documentation a breeze
-
-## Font
-
-* [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
-    This font from Adobe is really nice for coding
-* [Monoid](https://github.com/larsenwork/monoid) Coding ligatures aware font
-* [FiraCode](https://github.com/tonsky/FiraCode) Another ligatures aware font
+* [Alignment](http://wbond.net/sublime_packages/alignment) Dead-simple alignment of multi-line selections and multiple selections
+* [DocBlockr](https://github.com/spadgos/sublime-jsdocs) Makes writing documentation a breeze
 
 ## Example Preferences
 
