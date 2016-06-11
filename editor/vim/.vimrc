@@ -5,6 +5,10 @@ set fileformats=unix,dos,mac " Support in this order
 " Autoload plugins located at ~/.vim/bundle
 execute pathogen#infect()
 
+" Airline integration
+set guifont=Source\ Code\ Pro
+let g:airline_powerline_fonts = 1
+
 " Editor
 syntax on
 colorscheme molokai " Located at ~/.vim/colors
@@ -32,10 +36,6 @@ set tabstop=4 " Tab key results in # spaces
 set softtabstop=4 " Tab key results in # spaces
 set shiftround " Round indent to nearest multiple of # spaces
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces
-
-" Highlight EOF, tabs and trailing spaces
-set listchars=eol:¬,tab:⎼⎼,trail:·
-set list
 
 " Search
 set ignorecase " Ignore case of searches
