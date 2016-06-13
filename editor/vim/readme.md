@@ -33,7 +33,7 @@ execute pathogen#infect()
 Add a really good looking status bar
 
 ```
-git clone git@github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 ```
 
 Download a font from [Powerline patched fonst](https://github.com/powerline/fonts), `Source Code Pro` for example, and install globally
@@ -56,8 +56,8 @@ let g:airline_powerline_fonts = 1
 Launch git commands from VIM and integrate into airline
 
 ```
-git clone git@github.com:tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
+git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 ```
 
 ### CtrlP
@@ -65,7 +65,7 @@ git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 Easy and quick path finder by Ctrl+P
 
 ```
-git clone git@github.com:ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp
+git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp
 ```
 
 ### Twig templates syntax coloring
@@ -73,7 +73,7 @@ git clone git@github.com:ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp
 By default VIM does not support twig syntax coloring but [vim-twig](https://github.com/evidens/vim-twig) plugin can be installed for this purpose
 
 ```
-git clone git@github.com:evidens/vim-twig.git ~/.vim/bundle/vim-twig
+git clone https://github.com/evidens/vim-twig.git ~/.vim/bundle/vim-twig
 ```
 
 ## Base .vimrc
