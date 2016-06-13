@@ -51,6 +51,14 @@ set guifont=Source\ Code\ Pro
 let g:airline_powerline_fonts = 1
 ```
 
+### Better whitespace
+
+Highlight tabs and trailing spaces
+
+```
+git clone https://github.com/ntpeters/vim-better-whitespace.git
+```
+
 ### Git integration
 
 Launch git commands from VIM and integrate into airline
