@@ -36,7 +36,7 @@ Add a really good looking status bar
 git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
 ```
 
-Download a font from [Powerline patched fonst](https://github.com/powerline/fonts), `Source Code Pro` for example, and install globally
+Download a font from [Powerline patched fonts](https://github.com/powerline/fonts), `Source Code Pro` for example, and install globally
 
 ```
 mv 'Sauce Code Powerline Regular.otf' ~/.fonts/
