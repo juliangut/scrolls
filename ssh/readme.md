@@ -31,12 +31,19 @@ It is a good thing to do although not a mandatory step.
 
 ## Configuration
 
-### File
-
 SSH configuration file is located under .ssh directory on user's home directory
 
 ```bash
 cat ~/.ssh/config
+chmod 644 ~/.ssh/config
+```
+
+### Host aliases
+
+```bash
+Host <host_alias>
+HostName <IP_o_ hostname>
+User <host_user>
 ```
 
 ## Certificates
