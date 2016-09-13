@@ -48,7 +48,8 @@
     unstage = reset HEAD
     discard = checkout --
 
-    untrack = rm --cached
+    untrack = update-index --assume-unchanged
+    retrack = undate-index --no-assume-unchanged
 
     ci    = commit
     amend = commit --amend --reuse-message=HEAD
