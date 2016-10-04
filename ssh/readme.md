@@ -29,6 +29,24 @@ accessed by another person.
 
 It is a good thing to do although not a mandatory step.
 
+### PEM Certificates
+
+In order to generate a `.pem` certificate from generated ssh key
+
+```bash
+openssl rsa -in ~/.ssh/id_rsa -outform pem > ~/.ssh/id_rsa.pem
+chmod 700 ~/.ssh/id_rsa.pem
+```
+
+#### Passphrase
+
+If a passphrase was used in key pair generation you need to provide it
+
+```bash
+openssl rsa -in ~/.ssh/id_rsa -passin -outform pem > ~/.ssh/id_rsa.pem
+chmod 700 ~/.ssh/id_rsa.pem
+```
+
 ## Configuration
 
 SSH configuration file is located under .ssh directory on user's home directory
@@ -46,24 +64,6 @@ HostName <IP_o_ hostname>
 User <host_user>
 ```
 
-## Certificates
-
-### PEM
-
-In order to generate a `.pem` certificate from generated ssh key
-
-```bash
-openssl rsa -in ~/.ssh/id_rsa -outform pem > ~/.ssh/id_rsa.pem
-chmod 700 ~/.ssh/id_rsa.pem
-```
-
-If a passphrase was used in key pair generation you need to provide it
-
-```bash
-openssl rsa -in ~/.ssh/id_rsa -passin -outform pem > ~/.ssh/id_rsa.pem
-chmod 700 ~/.ssh/id_rsa.pem
-```
-
 ### Aliases
 
 To alias a server and avoid selecting user to that server
@@ -74,7 +74,7 @@ Host alias_name
     User user_name
 ```
 
-### Using SSH key per host
+### Using different SSH key per host
 
 Assignation of specific SSH key file to a server/user is also possible
 
@@ -97,4 +97,46 @@ Host bitbucket.org
     HostName bitbucket.org
     User git
     IdentityFile ~/.ssh/id_rsa_bitbucket
+```
+
+## Let's encrypt
+
+### Install certbot
+
+Head to [certbot.eff.org](https://certbot.eff.org) to download instructions
+
+```
+sudo dnf install certbot
+```
+
+### Register domain
+
+Easiest registration process is through `webroot` method. This will automatically create `.well-known` directory under webroot to respond to let's encrypt challenge 
+
+```
+certbot-auto certonly -a webroot --webroot-path=/path/to/webroot -d domain.com -d www.domain.com
+```
+
+### Usage
+
+Certificates are automatically created at `/etc/letsencrypt/live/domain_name`. You only need to point to the certificates on server configuration
+
+```
+ssl_certificate     /etc/letsencrypt/live/domain.com/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem;
+```
+
+### Renewal
+
+Test renewal is possible
+
+```
+certbot-auto renew --dry-run
+```
+
+Once everything is set up schedule a cron to renew certificates
+
+```
+# m h dom mon dow user  command
+10 2    * * 7   root    certbot-auto renew --no-self-upgrade >> /var/log/certbot
 ```
