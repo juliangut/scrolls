@@ -1,4 +1,4 @@
-# MSYQL
+# MYSQL
 
 ## User management
 
@@ -92,3 +92,17 @@ FLUSH PRIVILEGES;
 REVOKE [privilege_type] ON [database_name].[table_name] FROM [user_name]@[host_name];
 FLUSH PRIVILEGES;
  ```
+
+## Backup
+
+### Creating
+
+```
+mysqldump -u [user_name] -p[password] [database_name] | gzip -9 > [backup.sql.gz]
+```
+
+### Restoring
+
+```
+gunzip < [backup.sql.gz] | mysql -u [user_name] -p[password] [database_name]
+```
