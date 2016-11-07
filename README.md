@@ -49,6 +49,10 @@ Or just to share with collegues.
 
 * General information / configuration
 
+## Docker
+
+* General information / configuration
+
 ## SSH
 
 * General information / configuration
