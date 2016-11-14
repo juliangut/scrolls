@@ -98,11 +98,11 @@ FLUSH PRIVILEGES;
 ### Creating
 
 ```
-mysqldump -u [user_name] -p[password] [database_name] | gzip -9 > [backup.sql.gz]
+mysqldump -h [host] -p [port] -u [user_name] -p[password] [database_name] | gzip -9 > [backup_file_name.sql.gz]
 ```
 
 ### Restoring
 
 ```
-gunzip < [backup.sql.gz] | mysql -u [user_name] -p[password] [database_name]
+gunzip < [backup_file_name.sql.gz] | mysql -h [host] -p [port] -u [user_name] -p[password] [database_name]
 ```
