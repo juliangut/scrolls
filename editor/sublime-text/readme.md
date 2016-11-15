@@ -99,9 +99,10 @@ Add the following and save
 
 ### Themes
 
-* [Material-theme](https://github.com/equinusocio/material-theme) Dark interface and icons change ("theme": "Material-Theme-Darker.sublime-theme")
+* [Agila](https://github.com/arvi/Agila-Theme) Several color schemas ("theme": "Agila.sublime-theme")
+* [Material](https://github.com/equinusocio/material-theme) Dark interface and icons change ("theme": "Material-Theme-Darker.sublime-theme")
 * [Predawn](https://github.com/jamiewilson/predawn/) A dark interface and syntax theme ("theme": "predawn.sublime-theme")
-* [Theme - Brogrammer](https://github.com/kenwheeler/brogrammer-theme) Brogrammer is a flat sexy theme ("theme": "Brogrammer.sublime-theme")
+* [Brogrammer](https://github.com/kenwheeler/brogrammer-theme) Brogrammer is a flat sexy theme ("theme": "Brogrammer.sublime-theme")
 
 ### Other
 
