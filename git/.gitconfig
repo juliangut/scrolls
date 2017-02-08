@@ -52,7 +52,7 @@
     retrack = undate-index --no-assume-unchanged
 
     ci    = commit
-    amend = commit --amend --reuse-message=HEAD
+    amend = commit --amend
     pulla = pull --all
     pusha = push --all
 

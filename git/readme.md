@@ -136,7 +136,7 @@ git config --global alias.discard 'checkout --'
 
 ```bash
 git config --global alias.ci commit
-git config --global alias.amend 'commit --amend --reuse-message=HEAD'
+git config --global alias.amend 'commit --amend'
 git config --global alias.pulla 'pull --all'
 git config --global alias.pusha 'push --all'
 git config --global alias.untrack 'rm --cached'
@@ -213,14 +213,16 @@ Then you can add `diff=exif` to `.gitattributes` file
 *`exiftool` is needed for this*
 
 ```
-yum install exiftool
+dnf install exiftool
 ```
 
-### GIT bash completion
+### GIT bash integration
+
+#### Auto completion
 
 In case you don't have bash git commands completion already you can add it with `git-completion.sh`
 
-The script can be found alonside this document or can be downloaded from:
+The script can be found alongside this document or can be downloaded from:
 
 ```bash
 curl http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash -o ~/.git-completion.sh
@@ -234,126 +236,55 @@ if [ -f ~/.git-completion.sh ]; then
 fi
 ```
 
-## GIT information on bash
+#### Prompt information
 
-If you want to show current git branch on bash prompt you can use `git-prompt.sh`
+If you want to show current git branch on bash prompt you can use `bash-powerline.sh`
 
-The script can be found alonside this document or can be downloaded from:
+The script (a modification of [riobard/bash-powerline](https://github.com/riobard/bash-powerline)) can be found alongside this document
 
 ```bash
-curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+curl https://github.com/juliangut/scrolls/blob/master/git/.bash-powerline.sh -o ~/.bash-powerline.sh
 ```
 
-Put the file in your home directory and add the following lines to ~/.bashrc
+Put the file in your home directory and add the following lines at the end of `~/.bashrc` file
 
 ```bash
-function __shorten_pwd()
-{
-    LENGTH="40"
-    PART1="10"
-    PART2="27"
-
-    DIR=`echo "${PWD}" | sed "s/\\/home\\/$USER/~/" | sed "s/\\/Users\\/$USER/~/"`
-
-    if [ ${#DIR} -gt $(($LENGTH)) ]; then
-        echo "${DIR:0:$(($PART1))}...${DIR:$((${#DIR}-$PART2)):$PART2}"
-    else
-        echo "$DIR"
-    fi
-}
-
-DEFAULT="\[\e[0;39m\]"
-BOLDYELLOW="\[\e[1;33m\]"
-DARKGRAY="\[\e[0;90m\]"
-LIGHTCYAN="\[\e[0;96m\]"
-
-if [ -f ~/.git-prompt.sh ]; then
-    . ~/.git-prompt.sh
-
-    PS1="$LIGHTCYAN\u $DARKGRAY\W$BOLDYELLOW\$(__git_ps1)$DEFAULT \$  "
-    /*PS1="$LIGHTCYAN\u $DARKGRAY\$(__shorten_pwd)$BOLDYELLOW\$(__git_ps1)$DEFAULT \$  "*/
-else
-    PS1="[$LIGHTCYAN\u $DARKGRAY\W$DEFAULT \$  "
-    /*PS1="$LIGHTCYAN\u $DARKGRAY\$(__shorten_pwd)$DEFAULT \$  "*/
+if [ -f ~/.bash-powerline.sh ]; then
+    source ~/.bash-powerline.sh
 fi
-export PS1
 ```
 
 Or you can make your own combination
 
-* `\h` hostname up to the first `.`
 * `\u` current user
+* `\h` hostname up to the first `.`
 * `\W` basename of current working directory, with `$HOME` abbreviated with a tilde (`~`)
-* `\$(__git_ps1)` displays current git branch
+* `\$(__git_info)` displays current git branch information
 * `\$(__shorten_pwd)` shortens pwd (otherwise use `\W`)
 
-### Modifiers
+## Rewrite commit history
 
-This modifiers can be added to show extra information about current status following branch name
+In case of committing with a wrong user configuration, maybe not from your own computer, there is a last resort to rewrite committer information.
 
-#### Stash state
-
-A symbol (`$`) will be shown to indicate stashed files
-
-Add the following to `~/.bashrc`
+Download and update `git-rewrite-commiter.sh` with the correct user information on a fresh copy of the repository.
 
 ```bash
-GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWSTASHSTATE
+curl https://github.com/juliangut/scrolls/blob/master/git/git-rewrite-commmitter.sh -o ~/git-rewrite-commmitter.sh
+vim ./git-rewrite-commmitter.sh
 ```
 
-#### Untracked files
-
-A symbol (`%`) will be shown to indicate untracked files
-
-Add the following to `~/.bashrc`
+Apply commit rewrite
 
 ```bash
-GIT_PS1_SHOWUNTRACKEDFILES=true
-export GIT_PS1_SHOWUNTRACKEDFILES
+chmod +x ./git-rewrite-commmitter.sh
+bash ./git-rewrite-commmitter.sh
+rm ./git-rewrite-commmitter.sh
 ```
 
-#### Stage state
-
-A symbol will be shown to indicate stage status:
-* `*` for unstaged files
-* `+` for already staged files
-
-Add the following to `~/.bashrc`
+Push commit again
 
 ```bash
-GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWDIRTYSTATE
-```
-
-#### Branch status
-
-A symbol will be shown to indicate comparison status with remote:
-
-* `=` no difference
-* `<` you are behind remote
-* `>` you are ahead remote
-* `<>` you have diverged from remote
-
-Add the following to `~/.bashrc`
-
-```bash
-GIT_PS1_SHOWUPSTREAM="auto"
-export GIT_PS1_SHOWUPSTREAM
-```
-
-## Rewrite commiter history
-
-In case of comitting with a wrong user configuration, maybe not from your own computer, there is a last resort to rewrite commiter information.
-
-Copy and update `git-rewrite-commiter.sh` with the correct user information on a fresh copy of the repository.
-
-Finally run
-
-```bash
-bash ./git-rewrite-commmiter.sh
 git push --force --tags origin 'refs/heads/*'
 ```
 
 And delete the fresh copy of the repository as it's not needed any more
-
