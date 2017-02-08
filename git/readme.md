@@ -240,7 +240,7 @@ fi
 
 If you want to show current git branch on bash prompt you can use `bash-powerline.sh`
 
-The script (a modification of [riobard/bash-powerline](https://github.com/riobard/bash-powerline)) can be found alongside this document
+The script (a modification over [riobard/bash-powerline](https://github.com/riobard/bash-powerline)) can be found alongside this document
 
 ```bash
 curl https://github.com/juliangut/scrolls/blob/master/git/.bash-powerline.sh -o ~/.bash-powerline.sh
@@ -254,13 +254,7 @@ if [ -f ~/.bash-powerline.sh ]; then
 fi
 ```
 
-Or you can make your own combination
-
-* `\u` current user
-* `\h` hostname up to the first `.`
-* `\W` basename of current working directory, with `$HOME` abbreviated with a tilde (`~`)
-* `\$(__git_info)` displays current git branch information
-* `\$(__shorten_pwd)` shortens pwd (otherwise use `\W`)
+In order to see the new bash prompt in all its glory download a font from [Powerline patched fonts](https://github.com/powerline/fonts), `Source Code Pro` for example, and use it in your terminal
 
 ## Rewrite commit history
 
