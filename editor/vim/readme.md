@@ -51,7 +51,7 @@ Finally add this lines to `.vimrc` file
 " Airline integration
 set guifont=Source\ Code\ Pro
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+let g:airline_theme='kolor'
 ```
 
 The list of available airline themes can be found at `~/.vim/bundle/vim-airline-themes/autoload/airline/themes`
