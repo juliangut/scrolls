@@ -30,33 +30,38 @@ execute pathogen#infect()
 
 ### Airline Status bar
 
-Add a really good looking status bar
+Add an informational and good looking status bar
 
 ```
-git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+git clone git@github.com:vim-airline/vim-airline.git ~/.vim/bundle/vim-airline
+git clone git@github.com:vim-airline/vim-airline-themes.git ~/.vim/bundle/vim-airline-themes
 ```
 
 Download a font from [Powerline patched fonts](https://github.com/powerline/fonts), `Source Code Pro` for example, and install globally
 
 ```
-mv 'Sauce Code Powerline Regular.otf' ~/.fonts/
+wget https://github.com/powerline/fonts/raw/master/SourceCodePro/Sauce%20Code%20Powerline%20Regular.otf
+mv Sauce\ Code\ Powerline\ Regular.otf ~/.fonts/
 fc-cache -vf ~/.fonts/
 ```
 
-Finally add this lines to `.vimrc`file
+Finally add this lines to `.vimrc` file
 
 ```
 " Airline integration
 set guifont=Source\ Code\ Pro
 let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
 ```
+
+The list of available airline themes can be found at `~/.vim/bundle/vim-airline-themes/autoload/airline/themes`
 
 ### Better whitespace
 
 Highlight tabs and trailing spaces
 
 ```
-git clone https://github.com/ntpeters/vim-better-whitespace.git
+git clone git@github.com:ntpeters/vim-better-whitespace.git ~/.vim/bundle/vim-better-whitespace
 ```
 
 ### Git integration
@@ -64,8 +69,8 @@ git clone https://github.com/ntpeters/vim-better-whitespace.git
 Launch git commands from VIM and integrate into airline
 
 ```
-git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
+git clone git@github.com:tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 ```
 
 ### CtrlP
@@ -73,7 +78,7 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgut
 Easy and quick path finder by Ctrl+P
 
 ```
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp
+git clone git@github.com:ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp
 ```
 
 ### Twig templates syntax coloring
@@ -81,9 +86,9 @@ git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp
 By default VIM does not support twig syntax coloring but [vim-twig](https://github.com/evidens/vim-twig) plugin can be installed for this purpose
 
 ```
-git clone https://github.com/evidens/vim-twig.git ~/.vim/bundle/vim-twig
+git clone git@github.com:evidens/vim-twig.git ~/.vim/bundle/vim-twig
 ```
 
 ## Base .vimrc
 
-Find a .vimrc file with same defaults and Airline configuration alonside this document
+Find a .vimrc file with same defaults and Airline configuration alongside this document

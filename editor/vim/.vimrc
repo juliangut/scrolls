@@ -8,6 +8,7 @@ execute pathogen#infect()
 " Airline integration
 set guifont=Source\ Code\ Pro
 let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
 
 " Editor
 syntax on

@@ -111,5 +111,5 @@ Add the following and save
 
 ## Example Preferences
 
-Alonside this document can be found `Preferences.sublime-settings` file
+alongside this document can be found `Preferences.sublime-settings` file
 with custom preferences

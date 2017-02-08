@@ -36,5 +36,5 @@
 
 ## Example Preferences
 
-Alonside this document can be found `brackets.json` file with custom
+alongside this document can be found `brackets.json` file with custom
 preferences
