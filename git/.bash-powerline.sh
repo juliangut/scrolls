@@ -1,45 +1,30 @@
 #!/usr/bin/env bash
 
 __powerline() {
+    SECTION_LIST=('\u@\h' 'path' 'git')
+    SECTION_COLORS=('236' '246' '238' '248' '25' '111')
+    STATUS_COLORS=('2' '186' '124' '253')
+
+    PATH_MAX_LENGTH=30
+
     GIT_BRANCH_SYMBOL=' '
     GIT_BRANCH_CHANGED_SYMBOL='+'
     GIT_NEED_PUSH_SYMBOL='↑'
     GIT_NEED_PULL_SYMBOL='↓'
 
-    PATH_MAX_LENGTH=30
-
-    # SECTION_HOST > SECTION_PATH > SECTION_GIT > SECTION_SUCCESS/SECTION_ERROR
-    SECTION_HOST_BG=236
-    SECTION_HOST_FG=248
-    SECTION_PATH_BG=238
-    SECTION_PATH_FG=250
-    SECTION_GIT_BG=25
-    SECTION_GIT_FG=111
-    SECTION_SUCCESS_BG=2
-    SECTION_SUCCESS_FG=15
-    SECTION_ERROR_BG=160
-    SECTION_ERROR_FG=15
-
     PS_SYMBOL_DARWIN=''
     PS_SYMBOL_LINUX='$'
     PS_SYMBOL_OTHER='%'
 
-    DIM="\[$(tput dim)\]"
-    REVERSE="\[$(tput rev)\]"
-    RESET="\[$(tput sgr0)\]"
-    BOLD="\[$(tput bold)\]"
-
-    function __shorten_pwd()
-    {
+    __shorten_pwd() {
         local LEFT_LENGTH=10
         local RIGHT_LENGTH=`expr $PATH_MAX_LENGTH - 3 - $LEFT_LENGTH`
-
         local DIR=`echo "${PWD}" | sed "s/\\/home\\/$USER/~/" | sed "s/\\/Users\\/$USER/~/"`
 
         if [ ${#DIR} -gt $(($PATH_MAX_LENGTH)) ]; then
-            echo "${DIR:0:$(($LEFT_LENGTH))}...${DIR:$((${#DIR}-$RIGHT_LENGTH)):$RIGHT_LENGTH}"
+            printf "${DIR:0:$(($LEFT_LENGTH))}...${DIR:$((${#DIR}-$RIGHT_LENGTH)):$RIGHT_LENGTH}"
         else
-            echo "$DIR"
+            printf "$DIR"
         fi
     }
 
@@ -63,69 +48,85 @@ __powerline() {
         [ -n "$aheadN" ] && marks+=" $GIT_NEED_PUSH_SYMBOL$aheadN"
         [ -n "$behindN" ] && marks+=" $GIT_NEED_PULL_SYMBOL$behindN"
 
-        printf " $GIT_BRANCH_SYMBOL$branch$marks "
+        printf "$GIT_BRANCH_SYMBOL$branch$marks"
     }
 
-    SH_BG="\[$(tput setab $SECTION_HOST_BG)\]"
-    SH_TX="\[$(tput setaf $SECTION_HOST_FG)\]"
+    RESET="\[$(tput sgr0)\]"
 
-    SP_BG="\[$(tput setab $SECTION_PATH_BG)\]"
-    SP_FG="\[$(tput setaf $SECTION_HOST_BG)\]"
-    SP_TX="\[$(tput setaf $SECTION_PATH_FG)\]"
-
-    SG_BG="\[$(tput setab $SECTION_GIT_BG)\]"
-    SG_FG="\[$(tput setaf $SECTION_PATH_BG)\]"
-    SG_TX="\[$(tput setaf $SECTION_GIT_FG)\]"
-
-    SPS_BG="\[$(tput setab $SECTION_SUCCESS_BG)\]"
-    SPS_FG="\[$(tput setaf $SECTION_GIT_BG)\]"
-    SPS_TX="\[$(tput setaf $SECTION_SUCCESS_FG)\]"
-    SPE_BG="\[$(tput setab $SECTION_ERROR_BG)\]"
-    SPE_FG="\[$(tput setaf $SECTION_GIT_BG)\]"
-    SPE_TX="\[$(tput setaf $SECTION_ERROR_FG)\]"
-
-    SPD_FG="\[$(tput setaf $SECTION_PATH_BG)\]"
-    SQS_FG="\[$(tput setaf $SECTION_SUCCESS_BG)\]"
-    SQE_FG="\[$(tput setaf $SECTION_ERROR_BG)\]"
+    case "$(uname)" in
+        Darwin)
+            PS_SYMBOL=$PS_SYMBOL_DARWIN
+            ;;
+        Linux)
+            PS_SYMBOL=$PS_SYMBOL_LINUX
+            ;;
+        *)
+            PS_SYMBOL=$PS_SYMBOL_OTHER
+    esac
 
     ps1() {
-        case "$(uname)" in
-            Darwin)
-                PS_SYMBOL=$PS_SYMBOL_DARWIN
-                ;;
-            Linux)
-                PS_SYMBOL=$PS_SYMBOL_LINUX
-                ;;
-            *)
-                PS_SYMBOL=$PS_SYMBOL_OTHER
-        esac
-
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly.
         if [ $? -eq 0 ]; then
-            local PS_BG="$SPS_BG"
-            local PS_FG="$SPS_FG"
-            local PS_TX="$SPS_TX"
-            local EXIT_FG="$SQS_FG"
+            local PS_STATUS="success"
         else
-            local PS_BG="$SPE_BG"
-            local PS_FG="$SPE_FG"
-            local PS_TX="$SPE_TX"
-            local EXIT_FG="$SQE_FG"
+            local PS_STATUS="error"
         fi
 
-        local GIT_INFO=$(__git_info)
+        local PS_LINE=""
 
-        PS1="$SH_BG$SH_TX \u@\h $RESET"
-        PS1+="$SP_BG$SP_FG$RESET$SP_BG$SP_TX $(__shorten_pwd) $RESET"
+        local CUR_BG="${SECTION_LIST[0]}"
+        local CUR_FG="${SECTION_LIST[1]}"
+        local PREV_BG="${SECTION_LIST[0]}"
+        local PREV_FG="${SECTION_LIST[1]}"
+        for ((i=0; i<${#SECTION_LIST[@]}; i++)); do
+            local BG_INDEX=`expr ${i}*2`
+            local FG_INDEX=`expr ${BG_INDEX}+1`
+            local CUR_TEXT=""
 
-        if [ "$GIT_INFO" != "" ]; then
-            PS1+="$SG_BG$SG_FG$RESET$SG_BG$SG_TX$(__git_info)$RESET"
-            PS1+="$PS_BG$PS_FG$RESET"
+            case "${SECTION_LIST[$i]}" in
+                path)
+                    CUR_TEXT+=$(__shorten_pwd)
+                    ;;
+                git)
+                    CUR_TEXT+=$(__git_info)
+                    ;;
+                *)
+                    CUR_TEXT+="${SECTION_LIST[$i]}"
+            esac
+
+            if [ "$CUR_TEXT" != "" ]; then
+                PREV_BG="$CUR_BG"
+                PREV_FG="$CUR_FG"
+                CUR_BG="${SECTION_COLORS[$BG_INDEX]}"
+                CUR_FG="${SECTION_COLORS[$FG_INDEX]}"
+
+                if [ "$PS_LINE" != "" ]; then
+                    PS_LINE+="\[$(tput setab $CUR_BG)\]\[$(tput setaf $PREV_BG)\]$RESET"
+                fi
+                PS_LINE+="\[$(tput setab $CUR_BG)\]\[$(tput setaf $CUR_FG)\] $CUR_TEXT $RESET"
+            fi
+        done
+
+        # Status and prompt
+        PREV_BG="$CUR_BG"
+        PREV_FG="$CUR_FG"
+
+        if [ "$PS_STATUS" == "success" ]; then
+            CUR_BG="${STATUS_COLORS[0]}"
+            CUR_FG="${STATUS_COLORS[1]}"
         else
-            PS1+="$PS_BG$SPD_FG$RESET"
+            CUR_BG="${STATUS_COLORS[2]}"
+            CUR_FG="${STATUS_COLORS[3]}"
         fi
-        PS1+="$PS_BG$PS_TX $PS_SYMBOL $RESET$EXIT_FG$RESET "
+
+        if [ "$PS_LINE" != "" ]; then
+            PS_LINE+="\[$(tput setab $CUR_BG)\]\[$(tput setaf $PREV_BG)\]$RESET"
+        fi
+
+        PS_LINE+="\[$(tput setab $CUR_BG)\]\[$(tput setaf $CUR_FG)\] $PS_SYMBOL $RESET"
+
+        PS1="$PS_LINE\[$(tput setaf $CUR_BG)\]$RESET "
     }
 
     PROMPT_COMMAND=ps1
