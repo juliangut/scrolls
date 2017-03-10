@@ -99,9 +99,41 @@ Host bitbucket.org
     IdentityFile ~/.ssh/id_rsa_bitbucket
 ```
 
-## Let's encrypt
+## Certificates
 
-### Install certbot
+### Generate Private Key
+
+```
+openssl req -newkey rsa:2048 -nodes -keyout domain.key
+```
+
+### Generate a CSR
+
+```
+openssl req -key domain.key -new -out domain.csr
+```
+
+### Self-Signed Certificate
+
+#### One step
+
+```
+openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
+```
+
+#### From Private Key and CSR
+
+```
+// From private key
+openssl req -key domain.key -new -x509 -days 365 -out domain.crt
+
+// From private key and CSR
+openssl x509 -signkey domain.key -in domain.csr -req -days 365 -out domain.crt
+```
+
+### Let's encrypt
+
+#### Install certbot
 
 Head to [certbot.eff.org](https://certbot.eff.org) to download instructions
 
@@ -109,7 +141,7 @@ Head to [certbot.eff.org](https://certbot.eff.org) to download instructions
 sudo dnf install certbot
 ```
 
-### Register domain
+#### Register domain
 
 Easiest registration process is through `webroot` method. This will automatically create `.well-known` directory under webroot to respond to let's encrypt challenge 
 
@@ -117,7 +149,7 @@ Easiest registration process is through `webroot` method. This will automaticall
 certbot-auto certonly -a webroot --webroot-path=/path/to/webroot -d domain.com -d www.domain.com
 ```
 
-### Usage
+#### Usage
 
 Certificates are automatically created at `/etc/letsencrypt/live/domain_name`. You only need to point to the certificates on server configuration
 
@@ -126,7 +158,7 @@ ssl_certificate     /etc/letsencrypt/live/domain.com/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem;
 ```
 
-### Renewal
+#### Renewal
 
 Test renewal is possible
 
