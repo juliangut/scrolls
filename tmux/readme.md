@@ -6,6 +6,65 @@ In `~/.tmux.conf` file. Find an example tmux configuration alongside this docume
 
 Modifications won't take effect until tmux is reloaded
 
+### Indexing
+
+```
+set -g base-index 1
+set -g pane-base-index 1
+```
+
+### Mappings
+
+#### Configuration reload
+
+```
+bind r source-file ~/.tmux.conf
+```
+
+#### Prefix
+
+```
+unbind c-a
+set -g prefix C-a
+bind-key C-a send-prefix
+```
+
+#### Pane splitting
+
+```
+unbind %
+unbind '"'
+bind | split-window -h
+bind - split-window -v
+```
+
+#### Pane switching
+
+```
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+bind-key L last-window
+```
+
+### Style
+
+#### Pane highlighting
+
+```
+set -g pane-border-fg colour235
+set -g pane-active-border-fg colour240
+```
+
+#### Status bar
+
+```
+set -g status-bg blue
+set -g status-fg white
+setw -g status-left "#H [#S] at #W:#T"
+```
+
 ## Sessions
 
 #### List sessions
@@ -28,7 +87,7 @@ If no session name provided automatic int-indexed name will be generated
 ```
 tmux rename-session -t <old-session-name> <new-session-name>
 # or
-c-b $
+c-a $
 ```
 
 #### Attach to session
@@ -40,7 +99,7 @@ tnux a -t <session-name>
 #### Detach from session
 
 ```
-c-b d
+c-a d
 ```
 
 #### Kill session
@@ -56,38 +115,38 @@ Inside sessions
 #### List windows
 
 ```
-c-b w
+c-a w
 ```
 
 #### Create new window
 
 ```
-c-b c
+c-a c
 ```
 
 #### Rename window
 
 ```
-c-b ,
+c-a ,
 ```
 
 #### Kill current window
 
 ```
-c-b &
+c-a &
 ```
 
 #### Move between windows
 
 ```
 # next window
-c-b n
+c-a n
 
 # previous window
-c-b p
+c-a p
 
 # specific window
-c-b [0-9]
+c-a [0-9]
 ```
 
 ## Panes
@@ -98,21 +157,21 @@ Inside windows
 
 ```
 # horizontally
-c-b %
+c-a %
 # or
-c-b |
+c-a |
 
 # vertically
-c-b "
+c-a "
 # or
-c-b -
+c-a -
 ```
 
 #### Arrange panes
 
 ```
 # Repeatedly
-c-b <space>
+c-a <space>
 ```
 
 #### Activate panes
@@ -121,22 +180,22 @@ c-b <space>
 # move between panes
 m-<arrow-key>
 # or
-c-b <arrow-key>
+c-a <arrow-key>
 
 # move to previous active pane
-c-b ;
+c-a ;
 
 # swap with next pane
-c-b }
+c-a }
 
 # swap with previous pane
-c-b {
+c-a {
 ```
 
 #### Full-screen a pane
  
  ```
- c-b z
+ c-a z
  ```
  
  Same combination to exit full-screen
@@ -144,15 +203,15 @@ c-b {
 #### Resize panes
 
 ```
-c-b c-<arrow-key>
+c-a c-<arrow-key>
 # or
-c-b m-<arrow-key>
+c-a m-<arrow-key>
 ```
 
 #### Scroll in a pane
 
 ```
-c-b [
+c-a [
 # <esc> to go back to insert mode
 ```
 
@@ -161,5 +220,5 @@ c-b [
 ```
 c-d
 # or
-c-b x
+c-a x
 ```
