@@ -1,5 +1,16 @@
 # Tmux
 
+## Remember bash history
+
+Add this lines to your `~/.bashrc` file
+
+```
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+```
+
 ## Configuration
 
 In `~/.tmux.conf` file. Find an example tmux configuration alongside this document
