@@ -64,8 +64,8 @@ bind-key L last-window
 #### Pane highlighting
 
 ```
-set -g pane-border-fg colour235
-set -g pane-active-border-fg colour240
+set -g pane-border-fg colour240
+set -g pane-active-border-fg colour250
 ```
 
 #### Status bar
