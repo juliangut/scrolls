@@ -52,23 +52,15 @@ chmod 700 ~/.ssh/id_rsa.pem
 SSH configuration file is located under .ssh directory on user's home directory
 
 ```bash
-cat ~/.ssh/config
+touch ~/.ssh/config
 chmod 644 ~/.ssh/config
-```
-
-### Host aliases
-
-```bash
-Host <host_alias>
-HostName <IP_o_ hostname>
-User <host_user>
 ```
 
 ### Aliases
 
 To alias a server and avoid selecting user to that server
 
-```
+```bash
 Host alias_name
     HostName host.example.com
     User user_name
@@ -84,14 +76,19 @@ IdentityFile ~/.ssh/ssh_private_key_file
 
 #### Example of different keys per host
 
-```
+```bash
 #default id_rsa ssh key file name
 IdentityFile ~/.ssh/id_rsa
 
-Host github.com
+Host usera_github
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_github
+    IdentityFile ~/.ssh/id_rsa_usera_github
+
+Host userb_github
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_userb_github
 
 Host bitbucket.org
     HostName bitbucket.org
@@ -138,15 +135,15 @@ openssl x509 -signkey domain.key -in domain.csr -req -days 365 -out domain.crt
 Head to [certbot.eff.org](https://certbot.eff.org) to download instructions
 
 ```
-sudo dnf install certbot
+sudo dnf install certbot-nginx
 ```
 
 #### Register domain
 
-Easiest registration process is through `webroot` method. This will automatically create `.well-known` directory under webroot to respond to let's encrypt challenge 
+Easiest registration process is through `webroot` method. This will automatically create `/{webroot}/.well-known/acme-challenge` file to verify let's encrypt challenge. Be careful how the server treats `.well-known` directory
 
 ```
-certbot-auto certonly -a webroot --webroot-path=/path/to/webroot -d domain.com -d www.domain.com
+certbot certonly --webroot -w=/path/to/webroot -d domain_name [-d domain_name]
 ```
 
 #### Usage
@@ -154,8 +151,17 @@ certbot-auto certonly -a webroot --webroot-path=/path/to/webroot -d domain.com -
 Certificates are automatically created at `/etc/letsencrypt/live/domain_name`. You only need to point to the certificates on server configuration
 
 ```
-ssl_certificate     /etc/letsencrypt/live/domain.com/fullchain.pem;
-ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem;
+server {
+    listen 443 ssl;
+    ssl_certificate     /etc/letsencrypt/live/domain_name/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/domain_name/privkey.pem;
+    ssl_protocols             TLSv1 TLSv1.1 TLSv1.2;
+    ssl_session_cache         shared:SSL:10m;
+    ssl_ciphers               "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4";
+    ssl_prefer_server_ciphers on;
+
+    [...]
+}
 ```
 
 #### Renewal
@@ -163,12 +169,18 @@ ssl_certificate_key /etc/letsencrypt/live/domain.com/privkey.pem;
 Test renewal is possible
 
 ```
-certbot-auto renew --dry-run
+certbot renew --dry-run
 ```
 
 Once everything is set up schedule a cron to renew certificates
 
 ```
-# m h dom mon dow user  command
-10 2    * * 7   root    certbot-auto renew --no-self-upgrade >> /var/log/certbot
+# m h dom mon dow user command
+10 2 * * 7 root certbot-auto renew --no-self-upgrade >> /var/log/certbot
+```
+
+#### List certificates
+
+```
+certbot certificates
 ```
