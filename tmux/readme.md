@@ -59,6 +59,14 @@ bind -n M-Down select-pane -D
 bind-key L last-window
 ```
 
+### Mouse
+
+#### Enable
+
+```
+set -g mouse on
+```
+
 ### Style
 
 #### Pane highlighting
@@ -73,7 +81,7 @@ set -g pane-active-border-fg colour250
 ```
 set -g status-bg blue
 set -g status-fg white
-setw -g status-left "#H [#S] at #W:#T"
+set -g status-left "#H [#S] at #W:#T"
 ```
 
 ## Sessions
