@@ -3,7 +3,7 @@
 Personal knowledge base I need to browse for, normally when I'm on
 a new computer or I have to format mine due to "too much playing".
 
-Or just to share with collegues.
+Or just for sharing with colleagues.
 
 ## Code Analysis Tools
 
@@ -54,5 +54,9 @@ Or just to share with collegues.
 * General information / configuration
 
 ## SSH
+
+* General information / configuration
+
+## Tmux
 
 * General information / configuration

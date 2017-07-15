@@ -1,4 +1,4 @@
-# Sublime Text 3
+# Editors
 
 ## Fonts
 
