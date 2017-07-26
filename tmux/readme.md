@@ -61,6 +61,8 @@ bind -n M-Down select-pane -D
 #### Window switching
 
 ```
+bind -n S-Left previous-window
+bind -n S-Right next-window
 bind-key L last-window
 ```
 
@@ -179,11 +181,11 @@ c-a &
 #### Move between windows
 
 ```
-# next window
-c-a n
+# move between windows
+s-<arrow-key>
 
-# previous window
-c-a p
+# move to last active window 
+c-a l
 
 # specific window
 c-a [0-9]
@@ -221,24 +223,15 @@ c-a <space>
 m-<arrow-key>
 # or
 c-a <arrow-key>
-
-# move to previous active pane
-c-a ;
-
-# swap with next pane
-c-a }
-
-# swap with previous pane
-c-a {
 ```
 
 #### Full-screen a pane
  
- ```
- c-a z
- ```
+```
+c-a z
+```
  
- Same combination to exit full-screen
+Same combination to exit full-screen
 
 #### Resize panes
 
