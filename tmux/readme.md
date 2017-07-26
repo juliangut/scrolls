@@ -29,7 +29,7 @@ set -g pane-base-index 1
 #### Configuration reload
 
 ```
-bind r source-file ~/.tmux.conf
+bind r source-file ~/.tmux.conf \; display 'Config: RELOAD'
 ```
 
 #### Prefix
@@ -56,7 +56,21 @@ bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
+```
+
+#### Window switching
+
+```
 bind-key L last-window
+```
+
+#### Zooming
+
+```
+unbind +
+bind + new-window -d -n tmp \; swap-pane -s tmp.1 \; select-window -t tmp \; set mouse off
+unbind -
+bind - last-window \; swap-pane -s tmp.1 \; kill-window -t tmp \; set mouse on
 ```
 
 ### Mouse
@@ -65,6 +79,13 @@ bind-key L last-window
 
 ```
 set -g mouse on
+```
+
+#### Mappings
+
+```
+bind m set -g mouse on \; display 'Mouse: ON'
+bind M set -g mouse off \; display 'Mouse: OFF'
 ```
 
 ### Style
