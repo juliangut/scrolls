@@ -44,9 +44,11 @@ bind-key C-a send-prefix
 
 ```
 unbind %
+unbind v
+bind v split-window -h
 unbind '"'
-bind | split-window -h
-bind - split-window -v
+unbind h
+bind h split-window -v
 ```
 
 #### Pane switching
