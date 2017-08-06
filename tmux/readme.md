@@ -85,11 +85,28 @@ bind - last-window \; swap-pane -s tmp.1 \; kill-window -t tmp \; set mouse on
 set -g mouse on
 ```
 
-#### Mappings
+#### Toggle
 
 ```
-bind m set -g mouse on \; display 'Mouse: ON'
-bind M set -g mouse off \; display 'Mouse: OFF'
+bind m run "cut -c3- ~/.tmux.conf | sh -s _toggle_mouse"
+
+# EOF
+#
+# _toggle_mouse() {
+#   old=$(tmux show -gv mouse)
+#   new=""
+#
+#   if [ "$old" = "on" ]; then
+#     new="off"
+#   else
+#     new="on"
+#   fi
+#
+#   tmux set -g mouse $new \;\
+#        display "mouse: $new"
+# }
+#
+# "$@"
 ```
 
 ### Style
@@ -115,6 +132,8 @@ set -g status-left "#H [#S] at #W:#T"
 
 ```
 tmux ls
+#or
+c-a s
 ```
 
 #### Start new session
@@ -184,7 +203,7 @@ c-a &
 
 ```
 # move between windows
-s-<arrow-key>
+shift-<arrow-key>
 
 # move to last active window 
 c-a l
@@ -203,12 +222,12 @@ Inside windows
 # horizontally
 c-a %
 # or
-c-a |
+c-a v
 
 # vertically
 c-a "
 # or
-c-a -
+c-a h
 ```
 
 #### Arrange panes
@@ -222,9 +241,23 @@ c-a <space>
 
 ```
 # move between panes
-m-<arrow-key>
+alt-<arrow-key>
 # or
 c-a <arrow-key>
+```
+
+#### Move panes
+
+```
+# swap with previous
+c-a {
+#or
+c-a <
+
+# swap with next
+c-a }
+#or
+c-a >
 ```
 
 #### Full-screen a pane
@@ -235,12 +268,22 @@ c-a z
  
 Same combination to exit full-screen
 
+##### Expand a pane
+
+```
+# expand
+c-a +
+
+# contract
+c-a -
+```
+
 #### Resize panes
 
 ```
 c-a c-<arrow-key>
 # or
-c-a m-<arrow-key>
+c-a alt-<arrow-key>
 ```
 
 #### Scroll in a pane
