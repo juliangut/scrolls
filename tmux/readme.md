@@ -11,11 +11,37 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 ```
 
+## Plugin Manager 
+
+Add Tmux Plugin Manager
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
 ## Configuration
 
 In `~/.tmux.conf` file. Find an example tmux configuration alongside this document
 
 Modifications won't take effect until tmux is reloaded
+
+### Plugins
+
+Add plugins at the end of the configuration file
+
+```
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+run '~/.tmux/plugins/tpm/tpm'
+```
+
+In order to install plugins run
+
+```
+c-I
+```
 
 ### Indexing
 
