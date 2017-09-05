@@ -147,9 +147,16 @@ set -g pane-active-border-fg colour250
 #### Status bar
 
 ```
-set -g status-bg blue
-set -g status-fg white
-set -g status-left "#H [#S] at #W:#T"
+set -g status on
+set -g status-interval 2
+set -g status-bg colour234
+set -g status-fg colour250
+set -g status-left-length 30
+set -g status-left " #S "
+set -g window-status-format "#[fg=colour240]#I #[fg=colour240] #[fg=colour240]#W "
+set -g window-status-current-format "#[fg=colour234,bg=colour240]#[fg=colour250,bg=colour240] #I  #[fg=colour250,bold]#W #[fg=colour240,bg=colour234,nobold]"
+set -g status-right-length 150
+set -g status-right "#H %Y-%m-%d %H:%M"
 ```
 
 ## Sessions
