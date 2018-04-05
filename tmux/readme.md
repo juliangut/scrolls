@@ -43,11 +43,24 @@ In order to install plugins run
 c-I
 ```
 
-### Indexing
+### Coloring
+
+```
+set -g default-terminal 'screen-256color'
+```
+
+### Window/Pane indexing
 
 ```
 set -g base-index 1
 set -g pane-base-index 1
+set -g renumber-windows on
+```
+
+### History
+
+```
+set -g history-limit 10000
 ```
 
 ### Mappings
