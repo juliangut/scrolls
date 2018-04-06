@@ -19,6 +19,14 @@ Add Tmux Plugin Manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+Add plugins
+
+```
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-resurrect
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-continuum
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-prefix-highlight
+```
+
 ## Configuration
 
 In `~/.tmux.conf` file. Find an example tmux configuration alongside this document
@@ -27,7 +35,7 @@ Modifications won't take effect until tmux is reloaded
 
 ### Plugins
 
-Add plugins at the end of the configuration file
+Enable plugins at the end of the configuration file
 
 ```
 set -g @plugin 'tmux-plugins/tpm'
@@ -37,10 +45,16 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-In order to install plugins run
+Install plugins
 
 ```
 c-I
+```
+
+Update plugins
+
+```
+c-U
 ```
 
 ### Coloring
@@ -61,6 +75,14 @@ set -g renumber-windows on
 
 ```
 set -g history-limit 10000
+```
+
+### VIM mode switching
+
+Addresses http://superuser.com/a/252717/65504
+
+```
+set -s escape-time 0
 ```
 
 ### Mappings
@@ -126,26 +148,10 @@ set -g mouse on
 
 #### Toggle
 
-```
-bind m run "cut -c3- ~/.tmux.conf | sh -s _toggle_mouse"
+Copy .tmux-mouse-toggle.sh file to your home 
 
-# EOF
-#
-# _toggle_mouse() {
-#   old=$(tmux show -gv mouse)
-#   new=""
-#
-#   if [ "$old" = "on" ]; then
-#     new="off"
-#   else
-#     new="on"
-#   fi
-#
-#   tmux set -g mouse $new \;\
-#        display "mouse: $new"
-# }
-#
-# "$@"
+```
+bind m run "sh ~/.tmux-mouse-toggle.sh"
 ```
 
 ### Style
@@ -166,10 +172,10 @@ set -g status-bg colour234
 set -g status-fg colour250
 set -g status-left-length 30
 set -g status-left " #S "
-set -g window-status-format "#[fg=colour240]#I #[fg=colour240] #[fg=colour240]#W "
-set -g window-status-current-format "#[fg=colour234,bg=colour240]#[fg=colour250,bg=colour240] #I  #[fg=colour250,bold]#W #[fg=colour240,bg=colour234,nobold]"
+set -g window-status-format "#[fg=colour240]#I | #W "
+set -g window-status-current-format "#[fg=colour250,bg=colour240] #I | #[fg=colour250,bold]#W "
 set -g status-right-length 150
-set -g status-right "#H %Y-%m-%d %H:%M"
+set -g status-right "#{?client_prefix,#[fg=colour250]<Prefix>#[fg=colour240] ,}#H %Y-%m-%d %H:%M"
 ```
 
 ## Sessions
