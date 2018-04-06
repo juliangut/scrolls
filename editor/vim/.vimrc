@@ -3,7 +3,20 @@ set encoding=utf-8 nobomb " BOM causes trouble
 set fileformats=unix,dos,mac " Support in this order
 
 " Autoload plugins located at ~/.vim/bundle
-execute pathogen#infect()
+call plug#begin('~/.vim/bundle')
+
+" List of plugins
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'evidens/vim-twig'
+
+call plug#end()
 
 " Airline integration
 set guifont=Source\ Code\ Pro
@@ -50,3 +63,12 @@ set noerrorbells " Disable error bells
 set novisualbell " Disable visual blinking
 set t_vb=
 set tm=500
+
+" Plugins
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#1c1c1c ctermbg=234

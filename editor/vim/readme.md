@@ -12,30 +12,43 @@ You can find some fine color schemes beside this file
 
 ## Plugins
 
-### Pathogen
+Review plugins at [VimAwesome](https://vimawesome.com)
 
-[Pathogen](https://github.com/tpope/vim-pathogen) auto-loads installed plugins located at `~/.vim/bundle`
+### Plug
+
+[vim-plug](https://github.com/junegunn/vim-plug) auto-loads installed plugins located at `~/.vim/bundle`
 
 ```
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Add this lines to your `.vimrc` file
+Add this lines to your `.vimrc` file listing the plugins you want to use
 
 ```
 " Autoload plugins located at ~/.vim/bundle
-execute pathogen#infect()
+call plug#begin('~/.vim/bundle')
+
+" List of plugins
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'evidens/vim-twig'
+
+call plug#end()
+```
+
+In vim install plugins
+
+```
+:PlugInstall
 ```
 
 ### Airline Status bar
-
-Add an informational and good looking status bar
-
-```
-git clone git@github.com:vim-airline/vim-airline.git ~/.vim/bundle/vim-airline
-git clone git@github.com:vim-airline/vim-airline-themes.git ~/.vim/bundle/vim-airline-themes
-```
 
 Download a font from [Powerline patched fonts](https://github.com/powerline/fonts), `Source Code Pro` for example, and install globally
 
@@ -56,37 +69,17 @@ let g:airline_theme='kolor'
 
 The list of available airline themes can be found at `~/.vim/bundle/vim-airline-themes/autoload/airline/themes`
 
-### Better whitespace
+### Indent Guides
 
-Highlight tabs and trailing spaces
-
-```
-git clone git@github.com:ntpeters/vim-better-whitespace.git ~/.vim/bundle/vim-better-whitespace
-```
-
-### Git integration
-
-Launch git commands from VIM and integrate into airline
+Add to `.vimrc` file
 
 ```
-git clone git@github.com:tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
-```
-
-### CtrlP
-
-Easy and quick path finder by Ctrl+P
-
-```
-git clone git@github.com:ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp
-```
-
-### Twig templates syntax coloring
-
-By default VIM does not support twig syntax coloring but [vim-twig](https://github.com/evidens/vim-twig) plugin can be installed for this purpose
-
-```
-git clone git@github.com:evidens/vim-twig.git ~/.vim/bundle/vim-twig
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#1c1c1c ctermbg=234
 ```
 
 ## Base .vimrc
