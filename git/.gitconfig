@@ -59,7 +59,7 @@
     df  = diff --abbrev
     dfw = diff --abbrev --color-words
 
-    tags  = tag -l
+    tags  = tag -l --sort=-v:refname --columns
     pullt = fetch --tags
     pusht = push --tags
     retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
