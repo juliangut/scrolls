@@ -152,7 +152,7 @@ git config --global alias.dfw 'diff --abbrev --color-words'
 ### Tags
 
 ```bash
-git config --global alias.tags 'tag -l'
+git config --global alias.tags 'tag -l --sort=-v:refname --column'
 git config --global alias.pullt 'fetch --tags'
 git config --global alias.pusht 'push --tags'
 git config --global alias.retag '!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r'
