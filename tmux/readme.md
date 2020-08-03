@@ -24,7 +24,6 @@ Add plugins
 ```
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-resurrect
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-continuum
-git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-prefix-highlight
 ```
 
 ## Configuration
@@ -43,6 +42,12 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 
 run '~/.tmux/plugins/tpm/tpm'
+```
+
+#### Activate restoring pane contents
+
+```
+set -g @resurrect-capture-pane-contents 'on'
 ```
 
 Install plugins
@@ -71,10 +76,16 @@ set -g pane-base-index 1
 set -g renumber-windows on
 ```
 
+### UTF8
+```
+set -g utf8 on
+set -g status-utf8 on
+```
+
 ### History
 
 ```
-set -g history-limit 10000
+set -g history-limit 50000
 ```
 
 ### VIM mode switching
@@ -167,7 +178,7 @@ set -g pane-active-border-fg colour250
 
 ```
 set -g status on
-set -g status-interval 2
+set -g status-interval 5
 set -g status-bg colour234
 set -g status-fg colour250
 set -g status-left-length 30
