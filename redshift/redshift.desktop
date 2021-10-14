@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Redshift
+Comment=Color temperature adjustment
+Exec=/usr/bin/redshift -c ~/.config/redshift.conf
+Terminal=false
+Type=Application
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
