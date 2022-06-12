@@ -225,7 +225,7 @@ In case you don't have bash git commands completion already you can add it with 
 The script can be found alongside this document or can be downloaded from:
 
 ```bash
-curl http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash -o ~/.git-completion.sh
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.sh
 ```
 
 Put the file in your home directory and add the following lines to ~/.bashrc
@@ -243,7 +243,7 @@ If you want to show current git branch on bash prompt you can use `bash-powerlin
 The script (a modification over [riobard/bash-powerline](https://github.com/riobard/bash-powerline)) can be found alongside this document
 
 ```bash
-curl https://github.com/juliangut/scrolls/blob/master/git/.bash-powerline.sh -o ~/.bash-powerline.sh
+curl https://raw.githubusercontent.com/juliangut/scrolls/master/git/.bash-powerline.sh -o ~/.bash-powerline.sh
 ```
 
 Put the file in your home directory and add the following lines at the end of `~/.bashrc` file
