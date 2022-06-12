@@ -263,7 +263,7 @@ In case of committing with a wrong user configuration, maybe not from your own c
 Download and update `git-rewrite-commiter.sh` with the correct user information on a fresh copy of the repository.
 
 ```bash
-curl https://github.com/juliangut/scrolls/blob/master/git/git-rewrite-commmitter.sh -o ~/git-rewrite-commmitter.sh
+curl https://raw.githubusercontent.com/juliangut/scrolls/master/git/git-rewrite-committer.sh -o ~/git-rewrite-commmitter.sh
 vim ./git-rewrite-commmitter.sh
 ```
 
