@@ -44,10 +44,11 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-#### Activate restoring pane contents
+#### Activate restoring
 
 ```
 set -g @resurrect-capture-pane-contents 'on'
+set -g @continuum-restore 'on'º
 ```
 
 Install plugins
