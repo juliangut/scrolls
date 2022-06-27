@@ -78,22 +78,25 @@ IdentityFile ~/.ssh/ssh_private_key_file
 
 ```bash
 #default id_rsa ssh key file name
-IdentityFile ~/.ssh/id_rsa
+#IdentityFile ~/.ssh/id_rsa
 
 Host usera_github
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_rsa_usera_github
+    IdentitiesOnly yes
 
 Host userb_github
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_rsa_userb_github
+    IdentitiesOnly yes
 
 Host bitbucket.org
     HostName bitbucket.org
     User git
     IdentityFile ~/.ssh/id_rsa_bitbucket
+    IdentitiesOnly yes
 ```
 
 ## Certificates
