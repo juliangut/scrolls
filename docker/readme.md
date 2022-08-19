@@ -103,7 +103,7 @@ docker rm -v $(docker ps -a -qf status=exited)
 ### Unwanted images
 
 ```bash
-docker rmi $(docker images -qf dangling=true)
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 ```
 
 ### Unwanted volumes
