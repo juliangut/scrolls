@@ -10,41 +10,44 @@ SSH keys are located within user's home directory.
 cd ~/.ssh/
 ```
 
-### Default Keys
-
-Default keys are named `id_rsa` for private key and `id_rsa.pub` for public key
-
 ### Key generation
 
+When possible favor using ED25519
+
+#### ED25519
+
 ```bash
-ssh-keygen -t rsa -b 2048 -C "your@email.com"
+ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "your@email.com"
 ```
 
-You'll be asked to enter a name for the key, if none provided default name `id_rsa` is used
+#### RSA
+
+```bash
+ssh-keygen -a 100 -t rsa -b 4096 -f ~/.ssh/id_rsa4096 -C "your@email.com"
+```
 
 #### Passphrase
 
-In the process of generating a key pair you'll be asked to assign a passphrase to it to protect the key from being
-accessed by another person.
+In the process of generating a key pair you'll be asked to assign a passphrase to it to protect the key from being accessed by another person.
 
 It is a good thing to do although not a mandatory step.
 
 ### PEM Certificates
 
-In order to generate a `.pem` certificate from generated ssh key
+In order to derive a `.pem` certificate from the generated ssh key
 
 ```bash
-openssl rsa -in ~/.ssh/id_rsa -outform pem > ~/.ssh/id_rsa.pem
-chmod 700 ~/.ssh/id_rsa.pem
+openssl rsa -in ~/.ssh/id_rsa4096 -outform pem > ~/.ssh/id_rsa4096.pem
+chmod 700 ~/.ssh/id_rsa4096.pem
 ```
 
 #### Passphrase
 
-If a passphrase was used in key pair generation you need to provide it
+If a passphrase was used in key pair generation you need to include it
 
 ```bash
-openssl rsa -in ~/.ssh/id_rsa -passin -outform pem > ~/.ssh/id_rsa.pem
-chmod 700 ~/.ssh/id_rsa.pem
+openssl rsa -in ~/.ssh/id_rsa4096 -passin -outform pem > ~/.ssh/id_rsa4096.pem
+chmod 700 ~/.ssh/id_rsa4096.pem
 ```
 
 ## Configuration
@@ -58,7 +61,7 @@ chmod 644 ~/.ssh/config
 
 ### Aliases
 
-To alias a server and avoid selecting user to that server
+To alias a server and take advantage of using the alias in CLI
 
 ```bash
 Host alias_name
@@ -66,48 +69,72 @@ Host alias_name
     User user_name
 ```
 
+Now accessing `host.example.com` is simpler
+
+```bash
+ssh alias_name
+```
+
 ### Using different SSH key per host
 
-Assignation of specific SSH key file to a server/user is also possible
+Assigning a specific key file to a server/user is also possible
 
-```
-IdentityFile ~/.ssh/ssh_private_key_file
+```bash
+Host alias_name
+    HostName host.example.com
+    User user_name
+    IdentityFile ~/.ssh/custom_id_rsa
+    IdentitiesOnly yes
 ```
 
 #### Example of different keys per host
 
 ```bash
-#default id_rsa ssh key file name
-#IdentityFile ~/.ssh/id_rsa
-
 Host usera_github
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_usera_github
+    IdentityFile ~/.ssh/usera_github_id_rsa
     IdentitiesOnly yes
 
 Host userb_github
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_userb_github
+    IdentityFile ~/.ssh/userb_github_id_rsa
     IdentitiesOnly yes
 
 Host bitbucket.org
     HostName bitbucket.org
     User git
-    IdentityFile ~/.ssh/id_rsa_bitbucket
+    IdentityFile ~/.ssh/bitbucket_id_rsa
     IdentitiesOnly yes
+```
+
+### RSA algorithm support
+
+If you need to enable ssh-rsa algorithm to connect to a server
+
+```bash
+PubkeyAcceptedKeyTypes +ssh-rsa
+
+Host alias_name
+    HostName host.example.com
+    User user_name
+    IdentityFile ~/.ssh/custom_id_rsa
+    IdentitiesOnly yes
+    HostkeyAlgorithms +ssh-rsa
 ```
 
 ## Certificates
 
-### Generate Private Key
+### Generation
+
+#### Private Key
 
 ```
-openssl req -newkey rsa:2048 -nodes -keyout domain.key
+openssl req -newkey rsa:4096 -nodes -keyout domain.key
 ```
 
-### Generate a CSR
+#### CSR
 
 ```
 openssl req -key domain.key -new -out domain.csr
@@ -115,10 +142,10 @@ openssl req -key domain.key -new -out domain.csr
 
 ### Self-Signed Certificate
 
-#### One step
+#### At once
 
 ```
-openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
+openssl req -newkey rsa:4096 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
 ```
 
 #### From Private Key and CSR
