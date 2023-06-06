@@ -161,7 +161,7 @@ git config --global alias.retag '!r() { git tag -d $1 && git push origin :refs/t
 ### Stashing
 
 ```bash
-git config --global alias.unstash 'stash apply'
+git config --global alias.unstash 'stash pop'
 ```
 
 ### Others
