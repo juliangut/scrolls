@@ -48,6 +48,7 @@ run '~/.tmux/plugins/tpm/tpm'
 
 ```
 set -g @resurrect-capture-pane-contents 'on'
+set -g @continuum-save-interval '15'
 set -g @continuum-restore 'on'º
 ```
 
