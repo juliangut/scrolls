@@ -40,6 +40,38 @@ Add user to docker group
 sudo usermod -aG docker [username]
 ```
 
+### Docker-compose
+
+Install from binary
+
+```bash
+curl -s https://api.github.com/repos/docker/compose/releases/latest \
+  | grep browser_download_url \
+  | grep docker-compose-linux-x86_64 \
+  | cut -d '"' -f 4 \
+  | wget -qi -
+
+chmod +x docker-compose-linux-x86_64
+
+sudo mv docker-compose-linux-x86_64 /usr/local/bin/docker-compose
+```
+
+#### Auto completion
+
+Download script that can be found alongside this document or can be downloaded from:
+
+```bash
+sudo curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -o ~/.docker-compose-completion.sh
+```
+
+Put the file in your home directory and add the following lines to ~/.bashrc
+
+```bash
+if [ -f ~/.docker-compose-completion ]; then
+    source ~/.docker-compose-completion.sh
+fi
+```
+
 ## Images
 
 ### Building
@@ -52,7 +84,7 @@ Image repository/name format is `namespace/image_name:tag_name`
 
 Useful parameters:
 
-* `--rm` remove intermediate containers 
+* `--rm` remove intermediate containers
 * `--no-cache` forces recreation of all layers
 
 ## Containers
